@@ -1,0 +1,89 @@
+tabs,bodyなどなどのcssを調整する．
+iconを設定する．
+論文のlistをjsonで作るとその一覧を表示するようにする．
+
+Home
+    Profile
+        name: Shunta Takahashi(髙橋駿太)
+        position: Ph.D Candidate
+        Affiliation: Department of Physics, Kyoto University
+        Contact: shunta_at_gauge.scphys.kyoto-u.ac.jp
+    Research Interests
+        枠だけ
+    Publications
+        links: INSPIRE HEP, Google Scholar, arXiv
+    Talk
+    Affiliations
+        Apr. 2025 - 
+            Ph.D
+            Department of Physics, Kyoto University
+        Apr. 2023 - Mar. 2025
+            MSc
+            Research Institute for Mathematical Science, Kyoto University
+        Apr. 2020 - Mar. 2023
+            BSc (Incomplete, for early admission to graduate school)
+            Faculty of Science, Kyoto University
+        Apr. 2017 - Mar. 2020
+            Seiko Gakuin High School (Yokohama)
+
+Home
+Research
+Papers/Talks
+Notes
+Updates
+
+
+    
+
+
+
+
+/css
+    /style.css
+    cssは基本ここだけ．
+/data
+    /articles.json
+        /ja/articlesなどに入っているhtmlの一覧．対応言語やタグなどもここで管理する．
+        ここを更新しないと一覧に表示されない．
+    /site-settings.json
+        サイトの名前，色，フォント，アイコン，snsなどを設定する．
+        各htmlで個別に書くと変更が面倒なものは基本ここを参照する作りになっている．
+/en or /ja
+    各言語に対応．
+    /articles
+        同一用途のhtmlを一箇所に入れることで一覧参照を可能にしている．
+/i18n
+    言語対応のための辞書．
+/includes
+    言語から独立して使いまわすhtmlたち
+/images
+    画像を用途ごとに保存．
+    /icons
+        サイトのアイコンやsns系のロゴなどを格納．
+/js
+    /main.js
+        headの一部やheaderやfooterなど各htmlで記述すると面倒なものは，
+        site-settingsを読み込んでmian.jsで格納している．
+    /utils.js
+        小物たち．基本main.jsで呼び出す．
+/note.text
+    説明書．
+
+
+#更新したい時
+    ・sns
+        site-settingsを書き換える．
+    ・新しい記事を投稿する．
+        ・/ja/articlesなど対応するディレクトリにhtmlファイルを保存し，/data/articles.jsonを更新する．
+        ・htmlはテンプレートを使うとよい．
+        ・class="content"のdivで全体を囲う．data-content-typeにarticleなど記入．（これはsite-settingsのContentTypesを参照）
+        ・子要素でclass="content-title"がタイトルとして文字装飾される．
+        ・class="content-text"が本文扱いで，その最初150文字以下が一覧にイントロとして表示される．
+#サイトの外観を変更したい時
+    ・テーマ色やフォント，アイコンを変更
+        /data/site-settings.jsonを変更
+    ・footer
+        基本/includes/footer.htmlを変更．sns系は/data/site-settings.jsonを変更．
+#忘れそうな注意
+    ・対応言語を増やす時には/data/site-settings.jsonのlangsを更新する．
+    ・h1はheaderの文字．h2はページの見出し（Articleとか）．h3は記事の見出し．

@@ -1,0 +1,32 @@
+[
+    {
+        "filename": "article1.html",
+        "lang": ["ja", "en"],
+        "created": "2024-04-01",
+        "updated": "2024-04-20",
+        "tags": {
+            "ja":["技術", "Web"],
+            "en":["technology", "web"]
+        }
+    },
+    {
+        "filename": "article2.html",
+        "lang": ["ja", "en"],
+        "created": "2024-05-01",
+        "updated": "2024-05-23",
+        "tags": {
+            "ja":["技術"],
+            "en":["technology"]
+        }
+    },
+    {
+        "filename": "article3.html",
+        "lang": ["ja"],
+        "created": "2024-06-01",
+        "updated": "2024-06-10",
+        "tags": {
+            "ja":["技術", "Web"],
+            "en":["technology", "web"]
+        }
+    }
+  ]

@@ -1,0 +1,39 @@
+{
+    "siteName": "Shunta Takahashi",
+    "siteTitle": "Shunta Takahashi",
+    "langs":["ja", "en"],
+    "colors":{
+        "themeDarkColor": "rgb(5, 25, 89)",
+        "themeLightColor": "rgb(110, 219, 206)",
+        "themeTransparentDarkColor": "rgba(5, 89, 78, 0.8)",
+        "themeTransparentLightColor": "rgba(110, 219, 206, 0.85)",
+        "themeTextColor": "#333333",
+        "accentColor": "#e74c3c"
+    },
+    "fonts":{
+        "titleFont":"Courier, monospace",
+        "bodyFont":"Arial, sans-serif"
+    },
+    "iconImage": "/images/icons/ST-icon_hw.png",
+    "sns":{
+        "arxiv":{
+            "name": "arXiv",
+            "url": "https://arxiv.org/search/hep-th?query=Takahashi%2C+Shunta&searchtype=author&abstracts=hide&order=-announced_date_first&size=200",
+            "icon": "/images/icons/arxiv-logo-white.png"
+        },
+        "note":{
+            "name": "note",
+            "url": "https://note.com/vielb",
+            "icon": "/images/icons/note-logo.png"
+        },
+        "x":{
+            "name": "X",
+            "url": "https://x.com/univkyoto",
+            "icon": "/images/icons/x-logo-white.png"
+        }
+    },
+    "introLength": { "default":150, "ja":135, "en": 200 },
+    "contentTypes":{
+        "article":"Articles"
+    }
+}

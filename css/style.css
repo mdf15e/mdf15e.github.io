@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* color setting */
+:root {
+    --theme-dark: #000000;  /* 初期値（何でもOK） */
+    --theme-light: #ffffff;
+    --theme-transparent-dark: rgba(0, 0, 0, 0.8);
+    --theme-transparent-light: rgba(255, 255, 255, 0.8);
+    --theme-text: #000000;
+    --accent-color: #ff0000;
+    --title-font: "Times", serif;
+    --body-font: "Times", serif;
+    --icon-image: url('/images/icons/ST-icon.png');
+}
+
+/* tag */
+
+a {
+    color: var(--theme-dark);
+    text-decoration: underline;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: var(--icon-image);
+    background-size: 30vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: white;
+    color: black;
+}
+
+main {
+    margin: 0;
+    padding: 0 10%;
+    flex: 1;
+}
+
+/* class */
+
+.design-done{
+    font-family: var(--title-font);
+    color: var(--theme-dark);
+}
+.iconed{
+    display: inline-flex;
+    align-items: center;
+    padding-left: 1.2em; /* 左側に余白を確保（背景画像がはみ出ないように） */
+    background-image: var(--icon-image);
+    background-repeat: no-repeat;
+    background-position: 0.3em center;
+    background-size: 0.8em 0.8em; /* 必要に応じてサイズ調整 */
+}
+
+.inline-right{
+    display: block;
+    text-align: right;
+}
+
+.initial{
+    font-size: 2em;
+    vertical-align: baseline;
+    display: inline;
+    color: transparent;
+    -webkit-text-stroke: 0.05em var(--theme-dark); /* 輪郭の太さと色 */
+    text-stroke: 0.05em var(--theme-text); /* 一部ブラウザのため */
+}
+
+.content {
+    background-color: var(--theme-transparent-dark);
+    color: white;
+    margin: 0rem auto 1rem auto;
+    padding: 0.3rem 2rem 0.8rem;
+}
+
+.content a {
+    display: inline;
+    color: var(--theme-light);
+}
+
+.content .content-title a {
+    color: inherit;
+}
+
+.first-letter{
+    font-size: 1.5em;
+    vertical-align: baseline;
+    display: inline;
+    color: var(--theme-light);
+}
+
+.nodeco{
+    text-decoration: none;
+}
+
+.ruler{
+    border: none;
+    height: 1px;
+    background-color: white;
+    margin: 0 0 0.5rem 0;
+}
+
+.gap-1rem {
+    margin: 1rem;
+}
+
+/* header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-family: var(--title-font);
+    text-align: center;
+    background-color: white;
+    color: var(--theme-dark);
+    margin: 2rem 0 0 0;
+    padding: 0;
+    position: relative;
+}
+
+header h1 {
+    flex: 1;
+    text-align: center;
+}
+
+header h1 a {
+    text-decoration: none;
+}
+
+#language-switcher {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+#tab-container {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0 0.7rem 0;
+    padding: 0;
+    font-family: var(--title-font);
+}
+
+#header-hr{
+    border: none;
+    height: 2px;
+    background-color: var(--theme-dark);
+    margin: 0;
+}
+
+.tab {
+    font-size: 1.1rem;
+    margin: 0 0.2rem;
+}
+
+.tab:hover {
+    background-color: var(--theme-transparent-light);
+}
+
+/* footer */
+
+footer {
+  background-color: var(--theme-transparent-dark);
+  padding: 2rem 1rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: white;
+  margin-top: 1rem;
+  font-family: var(--title-font);
+}
+.footer-nav {
+  margin-top: 1rem;
+}

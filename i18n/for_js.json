@@ -1,0 +1,14 @@
+{
+    "ja": {
+      "readMore": "続きを読む",
+      "noTitle": "タイトルなし",
+      "noIntro": "イントロなし",
+      "fetchError": "データ取得に失敗しました:"
+    },
+    "en": {
+      "readMore": "Read more",
+      "noTitle": "No title",
+      "noIntro": "No introduction",
+      "fetchError": "Failed to fetch data:"
+    }
+}
