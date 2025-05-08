@@ -76,8 +76,8 @@ main {
 }
 
 .content {
-    background-color: var(--theme-transparent-dark);
-    color: white;
+    background-color: var(--theme-transparent-light);
+    color: rgb(4, 13, 48);
     margin: 0rem auto 1rem auto;
     padding: 0.3rem 2rem 0.8rem;
 }
@@ -95,7 +95,7 @@ main {
     font-size: 1.5em;
     vertical-align: baseline;
     display: inline;
-    color: var(--theme-light);
+    color: var(--theme-dark);
 }
 
 .nodeco{
@@ -105,7 +105,7 @@ main {
 .ruler{
     border: none;
     height: 1px;
-    background-color: white;
+    background-color: rgb(4, 13, 48);
     margin: 0 0 0.5rem 0;
 }
 
@@ -171,7 +171,7 @@ header h1 a {
 /* footer */
 
 footer {
-  background-color: var(--theme-transparent-dark);
+  background-color: var(--theme-dark);
   padding: 2rem 1rem 1rem;
   text-align: center;
   font-size: 0.9rem;

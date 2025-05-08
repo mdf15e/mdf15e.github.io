@@ -3,10 +3,10 @@
     "siteTitle": "Shunta Takahashi",
     "langs":["ja", "en"],
     "colors":{
-        "themeDarkColor": "rgb(5, 25, 89)",
-        "themeLightColor": "rgb(110, 219, 206)",
-        "themeTransparentDarkColor": "rgba(5, 89, 78, 0.8)",
-        "themeTransparentLightColor": "rgba(110, 219, 206, 0.85)",
+        "themeDarkColor": "rgb(14, 40, 143)",
+        "themeLightColor": "rgb(237, 241, 255)",
+        "themeTransparentDarkColor": "rgba(14, 40, 143, 0.8)",
+        "themeTransparentLightColor": "rgba(237, 241, 255, 0.85)",
         "themeTextColor": "#333333",
         "accentColor": "#e74c3c"
     },
