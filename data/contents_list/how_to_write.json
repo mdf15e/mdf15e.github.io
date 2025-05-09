@@ -1,0 +1,22 @@
+[
+    {
+        "filename": "{{lang}}/{{contentTypeS}}/ここのファイル名だけを書く",
+        "lang": ["対応言語を記述する"],
+        "created": "作成日を記述する.yyyy-mm-dd",
+        "updated": "更新日を記述する.yyyy-mm-dd",
+        "tags": {
+            "ja":["日本語でのタグを記述する", "日本語でのタグを記述する"],
+            "en":["英語でのタグを記述する", "英語でのタグを記述する"]
+        }
+    },
+    {
+        "filename": "article1.html",
+        "lang": ["ja", "en"],
+        "created": "2024-04-01",
+        "updated": "2024-04-20",
+        "tags": {
+            "ja":["技術", "web"],
+            "en":["technology", "web"]
+        }
+    }
+  ]

@@ -56,6 +56,21 @@ export function extractHtmlSnippet(domNode, limit = 100, suffix = '') {
   return wrapper.outerHTML;
 }
 
+export function importPluralize() {
+  return new Promise((resolve, reject) => {
+    if (window.pluralize) {
+      resolve(window.pluralize); // 👈 関数を返す
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/pluralize@8.0.0/pluralize.min.js";
+    script.onload = () => resolve(window.pluralize);
+    script.onerror = () => reject(new Error("Failed to load pluralize"));
+    document.head.appendChild(script);
+  });
+}
+
 export function insertContentHeading(typeToLabel) {
   document.querySelectorAll('div.content[data-content-type]').forEach(div => {
     const previous = div.previousElementSibling;
@@ -107,6 +122,15 @@ export function loadSnsLinks(snsdata){
       console.warn(`SNS link for ${platform} not found in site settings.`);
     }
   })
+}
+
+export async function safeAsync(promise) {
+  try {
+    const result = await promise;
+    return [null, result];
+  } catch (err) {
+    return [err, null];
+  }
 }
 
 export function setFavicon(url, type) {

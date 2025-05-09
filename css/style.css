@@ -36,7 +36,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: white;
-    color: black;
+    color: var(--theme-text);
 }
 
 main {
@@ -77,7 +77,7 @@ main {
 
 .content {
     background-color: var(--theme-transparent-light);
-    color: rgb(4, 13, 48);
+    color: var(--theme-text);
     margin: 0rem auto 1rem auto;
     padding: 0.3rem 2rem 0.8rem;
 }
@@ -106,6 +106,15 @@ main {
     margin-left: 2em;
 }
 
+.no-contents-message{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    background-color: var(--theme-transparent-light);
+    color: var(--theme-text);
+}
+
 .nodeco{
     text-decoration: none;
 }
@@ -113,7 +122,7 @@ main {
 .ruler{
     border: none;
     height: 1px;
-    background-color: rgb(4, 13, 48);
+    background-color: var(--theme-text);
     margin: 0 0 0.5rem 0;
 }
 

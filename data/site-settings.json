@@ -34,6 +34,8 @@
     },
     "introLength": { "default":150, "ja":135, "en": 200 },
     "contentTypes": {
-        "article": "Articles"
+        "article": "Articles",
+        "note": "Notes",
+        "update": "Updates"
     }
 }
