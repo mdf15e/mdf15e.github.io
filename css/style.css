@@ -98,6 +98,14 @@ main {
     color: var(--theme-dark);
 }
 
+.indented{
+    text-indent: 2em;
+}
+
+.margin-left{
+    margin-left: 2em;
+}
+
 .nodeco{
     text-decoration: none;
 }
