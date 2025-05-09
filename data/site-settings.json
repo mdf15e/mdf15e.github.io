@@ -14,7 +14,7 @@
         "titleFont":"Courier, monospace",
         "bodyFont":"Arial, sans-serif"
     },
-    "iconImage": "/images/icons/ST-icon_hw.png",
+    "iconImage": "/images/icons/ST-icon-blue.png",
     "sns": {
         "arxiv": {
             "name": "arXiv",
