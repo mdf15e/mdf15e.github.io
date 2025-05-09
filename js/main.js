@@ -18,11 +18,6 @@ Promise.all([
     setFavicon(siteSettings.iconImage);
     if (!document.title || document.title === '') document.title = siteSettings.siteTitle;
 
-    wrapContentTitle();
-    observeContentTitles();
-    wrapDesignedText();
-    observeDesignedText();
-
     readPage();  // ページの読み込み処理を呼び出す
   })
   .catch(err => {
@@ -31,6 +26,10 @@ Promise.all([
 
 // ページの読み込み
 function readPage() {
+  wrapContentTitle();
+  observeContentTitles();
+  wrapDesignedText();
+  observeDesignedText();
   applyTheme();
   loadHeader();
   loadFooter();

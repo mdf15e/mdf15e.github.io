@@ -84,7 +84,7 @@ main {
 
 .content a {
     display: inline;
-    color: var(--theme-light);
+    color: var(--theme-dark);
 }
 
 .content .content-title a {
