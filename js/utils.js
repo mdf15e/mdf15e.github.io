@@ -109,12 +109,17 @@ export function loadSnsLinks(snsdata){
         const img = document.createElement('img');
         img.src = icon;
         img.alt = platform;
-        img.style.width = '1.5em';
-        img.style.height = '1.5em';
-        img.style.margin = '0 0.2em';
+        img.classList.add('sns-icon');
+        link.classList.forEach(cls => {
+          if (cls !== "sns-link") img.classList.add(cls)
+        });
         a.appendChild(img);
+        if (link.textContent) {
+          const textNode = document.createTextNode(link.textContent);
+          a.appendChild(textNode);
+        }
       } else {
-        a.textContent = platform;
+        a.textContent += link.textContent ?? platform;
       };
 
       link.replaceWith(a);
@@ -122,15 +127,6 @@ export function loadSnsLinks(snsdata){
       console.warn(`SNS link for ${platform} not found in site settings.`);
     }
   })
-}
-
-export async function safeAsync(promise) {
-  try {
-    const result = await promise;
-    return [null, result];
-  } catch (err) {
-    return [err, null];
-  }
 }
 
 export function setFavicon(url, type) {

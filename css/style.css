@@ -98,6 +98,10 @@ main {
     color: var(--theme-dark);
 }
 
+.gap-1rem {
+    margin: 1rem;
+}
+
 .indented{
     text-indent: 2em;
 }
@@ -126,8 +130,18 @@ main {
     margin: 0 0 0.5rem 0;
 }
 
-.gap-1rem {
-    margin: 1rem;
+.sns-icon{
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 0.2em;
+    vertical-align: middle;
+}
+
+.small-sns-icon{
+    width: 1.0em;
+    height: 1.0em;
+    margin: 0 0.2em;
+    vertical-align: middle;
 }
 
 /* header */

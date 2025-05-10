@@ -67,7 +67,6 @@ function loadHeader() {
   fetch('/includes/header.html')
     .then(response => response.text())
     .then(html => {
-      // const siteName = wrapInitialLetters(siteSettings.siteName);
       html = html
         .replace(/{{siteName}}/g, siteSettings.siteName)
         .replace(/{{lang}}/g, lang)
