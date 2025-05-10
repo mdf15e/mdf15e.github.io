@@ -107,7 +107,7 @@ async function loadContents(contentType){
 
       if (!allContents || !Array.isArray(allContents) || allContents.length === 0) {
         const noContentsMessage = document.createElement('div');
-        noContentsMessage.className = 'no-contents-message';
+        noContentsMessage.className = 'content no-contents-message';
         noContentsMessage.textContent = t.noContents ?? 'No contents here.';
         contentsList.appendChild(noContentsMessage);
         return;
