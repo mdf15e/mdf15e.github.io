@@ -101,9 +101,9 @@ main {
 .content {
     background-color: var(--theme-transparent-light);
     color: var(--theme-text);
-    margin: 0rem auto 1rem auto;
-    padding: 0.3rem 2rem 0.8rem;
-    box-shadow: 3px 3px 6px var(--theme-transparent-dark);
+    margin: 0em auto 1em auto;
+    padding: 0.3em 1.5em 0.8em;
+    box-shadow: 0.1em 0.1em 0.2em var(--theme-transparent-dark);
     border-radius: 0.1em;
 }
 
