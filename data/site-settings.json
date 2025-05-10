@@ -7,7 +7,7 @@
         "themeLightColor": "rgb(237, 241, 255)",
         "themeTransparentDarkColor": "rgba(14, 40, 143, 0.8)",
         "themeTransparentLightColor": "rgba(237, 241, 255, 0.85)",
-        "themeTextColor": "#333333",
+        "themeTextColor": "rgb(4, 13, 48)",
         "accentColor": "#e74c3c"
     },
     "fonts": {

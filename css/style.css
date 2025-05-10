@@ -19,7 +19,7 @@
 /* tag */
 
 a {
-    color: var(--theme-dark);
+    color: var(--theme-text);
     text-decoration: underline;
 }
 
