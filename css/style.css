@@ -114,6 +114,7 @@ main {
 
 .content .content-title a {
     color: inherit;
+    text-decoration: none;
 }
 
 .first-letter{

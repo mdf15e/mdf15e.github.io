@@ -1,42 +1,4 @@
-tabs,bodyなどなどのcssを調整する．
-iconを設定する．
-論文のlistをjsonで作るとその一覧を表示するようにする．
-
-Home
-    Profile
-        name: Shunta Takahashi(髙橋駿太)
-        position: Ph.D Candidate
-        Affiliation: Department of Physics, Kyoto University
-        Contact: shunta_at_gauge.scphys.kyoto-u.ac.jp
-    Research Interests
-        枠だけ
-    Publications
-        links: INSPIRE HEP, Google Scholar, arXiv
-    Talk
-    Affiliations
-        Apr. 2025 - 
-            Ph.D
-            Department of Physics, Kyoto University
-        Apr. 2023 - Mar. 2025
-            MSc
-            Research Institute for Mathematical Science, Kyoto University
-        Apr. 2020 - Mar. 2023
-            BSc (Incomplete, for early admission to graduate school)
-            Faculty of Science, Kyoto University
-        Apr. 2017 - Mar. 2020
-            Seiko Gakuin High School (Yokohama)
-
-Home
-Research
-Papers/Talks
-Notes
-Updates
-
-
-    
-
-
-
+how to use it
 
 /css
     /style.css
