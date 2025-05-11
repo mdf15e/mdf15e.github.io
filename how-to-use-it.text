@@ -1,5 +1,10 @@
 HOW TO USE IT
 
+last editted: 2025-05-11
+editted by: Manaka Harumichi
+
+{{variable}}で変数を表す．
+
 #ファイル構成
 /css
     cssはここだけ
@@ -85,5 +90,5 @@ index.html
     - /includes/footer.htmlを変更．snsのリンク先はsnsの項目を参照
 
 #忘れそうな項目
-    ・対応言語を増やす時には/data/site-settings.json[langs]も更新する．
-    ・h1はheaderの文字．h2はpageの見出し．h3はcontentの見出し．
+・対応言語を増やす時には/data/site-settings.json[langs]も更新する．
+・h1はheaderの文字．h2はpageの見出し．h3はcontentの見出し．
