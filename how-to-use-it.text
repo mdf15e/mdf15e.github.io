@@ -69,8 +69,9 @@ index.html
         * h2要素にclass="designed"を付したものでページタイトルを追加．文字装飾される．
         * divにclass="content"を付したもので項目全体を囲う．
         * div class="content"の子要素として，h3要素にclass="content-title"を付したもので項目のタイトルを記入する．文字装飾される．
-        * div　class="content"の子要素のdivでclass="content-text"を付したものが本文扱いで，その最初150文字以下が一覧にイントロとして表示される．
-        * イントロの文字数はsite-settings.jsonで変更可能．
+        * div　class="content"の子要素のdivでclass="content-text"を付したものが本文扱い．
+        * contentの一覧を作りたいときはdivにid="{{contents}}-list"を付したものを書く．中身はなくて良い．
+        * 一覧に表示されるイントロの文字数はsite-settings.json.introLengthで変更可能．
 
 ・新しいcontentを作成する．
     - /templates/content_{{lang}}.htmlをもとにcontentのhtmlファイルを作成する．
@@ -79,13 +80,18 @@ index.html
         * divにclass="content"を付したもので全体を囲う．data-content-typeに{{content}}を記入．
         * div　class="content"の子要素として，h3要素にclass="content-title"を付したものでタイトルを記入する．文字装飾される．
         * div　class="content"の子要素のdivでclass="content-text"を付したものが本文扱いで，その最初150文字以下が一覧にイントロとして表示される．
-        * イントロの文字数はsite-settings.jsonで変更可能．
+        * イントロの文字数はsite-settings.json.introLengthで変更可能．
 
 #サイトの外観を変更したい時
+・サイトの名前,タイトル
+    - site-settings.jsonのsiteName,siteTitleを変更．
+    - siteNameはheaderに表示されるもの．siteTitleはブラウザのタブに表示されるもの．
+・icon
+    - site-settings.json.iconImageを変更．
 ・sns
-    - site-settings.json.snsを書き換える．
+    - site-settings.json.snsを変更．
 ・テーマ色やフォント，アイコンを変更
-    - /data/site-settings.jsonを変更
+    - /data/site-settings.jsonのcolors,fontsを変更
 ・footer
     - /includes/footer.htmlを変更．snsのリンク先はsnsの項目を参照
 
