@@ -1,0 +1,89 @@
+HOW TO USE IT
+
+#ファイル構成
+/css
+    cssはここだけ
+    /style.css
+/data
+    /{{contents}}.json
+        /{{lang}}/{{contents}}(ja/notesなど)に入っているhtmlの一覧．
+        対応言語やタグなどもここで管理する．
+        ここを更新しないと一覧に表示されない．
+    /site-settings.json
+        サイトの名前，色，フォント，アイコン，snsなどを設定する．
+        各htmlで個別に書くと変更が面倒なものは基本ここを参照する作りになっている．
+/i18n
+    言語対応のための辞書．
+/includes
+    言語から独立して使いまわすhtmlたち．
+index.html
+    rootへのurlにアクセスするとまずこれが開かれ，すぐhome.htmlにリダイレクトされる．
+/images
+    画像を用途ごとに保存．
+    /icons
+        サイトのアイコンやsns系のロゴなどを格納．
+/js
+    /main.js
+        主なjs．
+        headの一部やheaderやfooterなど各htmlで記述すると面倒なものは，
+        site-settings.jsonを読み込んでmian.jsで格納している．
+    /utils.js
+        小物たち．基本main.jsで呼び出す．
+/note.text
+    この説明書．
+/templates
+    htmlの雛形たち．
+/{{lang}} (/en, /jaなど)
+    各言語に対応したhtmlを格納．
+    /{{contents}} (notesなど)
+        同一用途のhtmlを一箇所に入れることで一覧参照を可能にしている．
+
+#ページの種類
+・page
+    homeなど中身を直で書き込むページ．
+・content
+    一つ一つが個別の記事．それらの一覧がpageに表示される．
+    構成）
+        コンテンツタイプ: {{content}} (in data/site-settings.json[contentType])
+        記事を格納するディレクトリ: /{{lang}}/{{contents}}
+        記事一覧を管理するファイル: /data/contents_list/{{contents}}.json
+        記事一覧を表示するpage: /{{lang}}/{{contents}}.html
+    例）
+        コンテンツタイプ: note
+        記事を格納するディレクトリ: /{{lang}}/notes
+        記事一覧を管理するファイル: /data/contents_list/notes.json
+        記事一覧を表示するpage: /{{lang}}/notes.html
+    なお複数形は不規則変化にも対応している(はず)．
+
+#更新したい時
+・新しいpageを作成する．
+    - /templates/page_{{lang}}.htmlをもとにpageのhtmlファイルを作成する．
+    - /{{lang}}にhtmlファイルを保存する．
+    - /includes/header.htmlのtabを追加する．
+    -　以下テンプレートについての説明
+        * h2要素にclass="designed"を付したものでページタイトルを追加．文字装飾される．
+        * divにclass="content"を付したもので項目全体を囲う．
+        * div class="content"の子要素として，h3要素にclass="content-title"を付したもので項目のタイトルを記入する．文字装飾される．
+        * div　class="content"の子要素のdivでclass="content-text"を付したものが本文扱いで，その最初150文字以下が一覧にイントロとして表示される．
+        * イントロの文字数はsite-settings.jsonで変更可能．
+
+・新しいcontentを作成する．
+    - /templates/content_{{lang}}.htmlをもとにcontentのhtmlファイルを作成する．
+    - /{{lang}}/{{contents}}にhtmlファイルを保存し，/data/{{contents}}.jsonを更新する．
+    - 以下テンプレートについての説明
+        * divにclass="content"を付したもので全体を囲う．data-content-typeに{{content}}を記入．
+        * div　class="content"の子要素として，h3要素にclass="content-title"を付したものでタイトルを記入する．文字装飾される．
+        * div　class="content"の子要素のdivでclass="content-text"を付したものが本文扱いで，その最初150文字以下が一覧にイントロとして表示される．
+        * イントロの文字数はsite-settings.jsonで変更可能．
+
+#サイトの外観を変更したい時
+・sns
+    - site-settings.json[sns]を書き換える．
+・テーマ色やフォント，アイコンを変更
+    - /data/site-settings.jsonを変更
+・footer
+    - /includes/footer.htmlを変更．snsのリンク先はsnsの項目を参照
+
+#忘れそうな項目
+    ・対応言語を増やす時には/data/site-settings.json[langs]も更新する．
+    ・h1はheaderの文字．h2はpageの見出し．h3はcontentの見出し．
