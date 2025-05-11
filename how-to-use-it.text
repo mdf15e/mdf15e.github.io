@@ -34,7 +34,7 @@ index.html
         site-settings.jsonを読み込んでmian.jsで格納している．
     /utils.js
         小物たち．基本main.jsで呼び出す．
-/note.text
+/how-to-use-it.text
     この説明書．
 /templates
     htmlの雛形たち．
