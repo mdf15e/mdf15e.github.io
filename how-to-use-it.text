@@ -49,7 +49,7 @@ index.html
 ・content
     一つ一つが個別の記事．それらの一覧がpageに表示される．
     構成）
-        コンテンツタイプ: {{content}} (in data/site-settings.json[contentType])
+        コンテンツタイプ: {{content}} (in data/site-settings.json.contentType)
         記事を格納するディレクトリ: /{{lang}}/{{contents}}
         記事一覧を管理するファイル: /data/contents_list/{{contents}}.json
         記事一覧を表示するpage: /{{lang}}/{{contents}}.html
@@ -83,12 +83,12 @@ index.html
 
 #サイトの外観を変更したい時
 ・sns
-    - site-settings.json[sns]を書き換える．
+    - site-settings.json.snsを書き換える．
 ・テーマ色やフォント，アイコンを変更
     - /data/site-settings.jsonを変更
 ・footer
     - /includes/footer.htmlを変更．snsのリンク先はsnsの項目を参照
 
 #忘れそうな項目
-・対応言語を増やす時には/data/site-settings.json[langs]も更新する．
+・対応言語を増やす時には/data/site-settings.json.langsも更新する．
 ・h1はheaderの文字．h2はpageの見出し．h3はcontentの見出し．
