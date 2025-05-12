@@ -59,7 +59,7 @@ export function extractHtmlSnippet(domNode, limit = 100, suffix = '') {
 export function importPluralize() {
   return new Promise((resolve, reject) => {
     if (window.pluralize) {
-      resolve(window.pluralize); // 👈 関数を返す
+      resolve(window.pluralize);
       return;
     }
 
@@ -67,6 +67,21 @@ export function importPluralize() {
     script.src = "https://cdn.jsdelivr.net/npm/pluralize@8.0.0/pluralize.min.js";
     script.onload = () => resolve(window.pluralize);
     script.onerror = () => reject(new Error("Failed to load pluralize"));
+    document.head.appendChild(script);
+  });
+}
+
+export function importExternalScript(url, deferFrag = true) {
+  return new Promise((resolve, reject) => {
+    if (document.querySelector(`script[src = "${url}"]`)){
+    resolve();
+    return;
+    }
+    const script = document.createElement('script');
+    script.src = url;
+    script.defer = deferFrag;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error(`Failed to load script: ${url}`));
     document.head.appendChild(script);
   });
 }

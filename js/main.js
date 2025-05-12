@@ -1,6 +1,7 @@
 import {
   extractHtmlSnippet,
   importPluralize,
+  importExternalScript,
   insertContentHeading,
   loadSnsLinks,
   setFavicon,
@@ -73,7 +74,14 @@ function loadHeader() {
       document.getElementById('header').innerHTML = html;
 
       setupLanguageSwitcher();
+
       loadSnsLinks(siteSettings.sns);
+
+      importExternalScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js')
+        .then(() => {
+          MathJax.typeset();
+        })
+        .catch(err => console.error('Error loading MathJax:', err));
     })
     .catch(err => console.error('Error loading header:', err));
 }
