@@ -68,6 +68,7 @@ function applyTheme() {
   root.style.setProperty('--title-font', siteSettings.fonts.titleFont);
   root.style.setProperty('--body-font', siteSettings.fonts.bodyFont);
   root.style.setProperty('--icon-image', `url(${siteSettings.iconImage})`);
+  root.style.setProperty('--theme-background',siteSettings.colors.themeBackgroundColor);
 }
 
 function addToHead() {

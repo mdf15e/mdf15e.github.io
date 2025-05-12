@@ -8,6 +8,7 @@
         "themeTransparentDarkColor": "rgba(14, 40, 143, 0.8)",
         "themeTransparentLightColor": "rgba(237, 241, 255, 0.85)",
         "themeTextColor": "rgb(4, 13, 48)",
+        "themeBackgroundColor": "rgb(255,255,255)",
         "accentColor": "#e74c3c"
     },
     "fonts": {

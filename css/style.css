@@ -42,6 +42,22 @@ body {
     overflow-x: hidden;
 }
 
+button {
+    font-family: var(--title-font);
+    background-color: var(--theme-dark);
+    color: var(--theme-background);
+    min-width: 5.5em;
+    height: 2em; 
+    border: 2px solid var(--theme-dark);
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+button:hover{
+    background-color: var(--theme-background);
+    color: var(--theme-text);
+}
+
 h2 {
     color: var(--theme-dark);
     display: inline-block;
@@ -143,7 +159,7 @@ main {
 }
 
 .margin-left{
-    margin-left: 2em;
+    margin-left: 1.5em;
 }
 
 .no-contents-message{
@@ -279,7 +295,7 @@ footer a:hover {
     }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 700px) {
     header {
         flex-direction: column; /* 横並び→縦並び */
         align-items: center;
