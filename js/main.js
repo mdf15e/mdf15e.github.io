@@ -35,17 +35,24 @@ Promise.all([
   });
 
 // ページの読み込み
-function readPage() {
+async function readPage() {
+  await addToHead();
   wrapContentTitle();
   observeContentTitles();
   wrapDesignedText();
   observeDesignedText();
   applyTheme();
-  loadHeader();
-  loadFooter();
+  await loadHeader();
+  await loadFooter();
   loadSnsLinks(siteSettings.sns);
-  loadContentsList();
+  await loadContentsList();
   insertContentHeading(siteSettings.contentTypes);
+
+  if (document.body.dataset.useMathjax === 'true') {
+    if (window.MathJax) {
+      await MathJax.typesetPromise();
+    }
+  }
 }
 
 // テーマの設定
@@ -63,8 +70,27 @@ function applyTheme() {
   root.style.setProperty('--icon-image', `url(${siteSettings.iconImage})`);
 }
 
+function addToHead() {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      tags: 'ams'
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      renderActions: {
+        addMenu: []
+      }
+    }
+  };
+
+  return importExternalScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js')
+    .catch(err => console.error('Error loading MathJax:', err));
+}
+
 // headerの読み込み
-function loadHeader() {
+async function loadHeader() {
   fetch('/includes/header.html')
     .then(response => response.text())
     .then(html => {
@@ -74,20 +100,13 @@ function loadHeader() {
       document.getElementById('header').innerHTML = html;
 
       setupLanguageSwitcher();
-
       loadSnsLinks(siteSettings.sns);
-
-      importExternalScript('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js')
-        .then(() => {
-          MathJax.typeset();
-        })
-        .catch(err => console.error('Error loading MathJax:', err));
     })
     .catch(err => console.error('Error loading header:', err));
 }
 
 // footerの読み込み
-function loadFooter() {
+async function loadFooter() {
   const footer = document.getElementById('footer');
   if (!footer) return;
 
@@ -101,18 +120,14 @@ function loadFooter() {
 }
 
 // コンテンツ一覧の読み込み
-async function loadContents(contentType){
-  try {
-  pluralize = await importPluralize();
-
+function loadContents(contentType, pluralize) {
   const contentTypeS = pluralize(contentType).toLowerCase();
   const contentsList = document.getElementById(`${contentTypeS}-list`);
-  if (!contentsList) return;
+  if (!contentsList) return Promise.resolve();
 
-  fetch(`/data/contents_list/${contentTypeS}.json`)
+  return fetch(`/data/contents_list/${contentTypeS}.json`)
     .then(response => response.json())
     .then(allContents => {
-
       if (!allContents || !Array.isArray(allContents) || allContents.length === 0) {
         const noContentsMessage = document.createElement('div');
         noContentsMessage.className = 'content no-contents-message';
@@ -120,26 +135,27 @@ async function loadContents(contentType){
         contentsList.appendChild(noContentsMessage);
         return;
       }
-      
+
       const contents = allContents
         .filter(contents => contents.lang.includes(lang))
         .sort((a, b) => new Date(b.created) - new Date(a.created));
 
-      fetch(`/includes/content-summary.html`)
+      return fetch(`/includes/content-summary.html`)
         .then(response => response.text())
         .then(template => {
-          contents.forEach(file => {
-            const pathToContent = contentTypeS + '/' + file.filename
-            fetch(pathToContent)
+          const renderPromises = contents.map(file => {
+            const pathToContent = contentTypeS + '/' + file.filename;
+
+            return fetch(pathToContent)
               .then(response => response.text())
               .then(html => {
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = html;
                 const title = tempDiv.querySelector('.content-title')?.textContent.trim() || t.noTitle;
                 const mainText = tempDiv.querySelector('.content-text') || (() => {
-                    const fallback = document.createElement('div');
-                    fallback.innerHTML = t.noIntro;
-                    return fallback;
+                  const fallback = document.createElement('div');
+                  fallback.innerHTML = t.noIntro;
+                  return fallback;
                 })();
                 const introLength = siteSettings.introLength[lang] ?? siteSettings.introLength.default;
 
@@ -160,20 +176,29 @@ async function loadContents(contentType){
               })
               .catch(err => console.error(`Error loading ${contentType}:`, err));
           });
+
+          return Promise.all(renderPromises);
         })
         .catch(err => console.error(`Error loading ${contentTypeS} summary template:`, err));
     })
     .catch(err => console.error(`Error loading ${contentType} data:`, err));
-  } catch (err) {
-    console.error(`loadContents error for "${contentType}":`, err);
-  }
 }
 
-function loadContentsList() {
-  const contentTypes = Object.keys(siteSettings.contentTypes);
-  contentTypes.forEach(contentType => {
-    loadContents(contentType);
-  });
+async function loadContentsList() {
+  try {
+    const pluralize = await importPluralize();
+    const contentTypes = Object.keys(siteSettings.contentTypes);
+
+    await Promise.all(
+      contentTypes.map(contentType => loadContents(contentType, pluralize))
+    );
+
+    if (window.MathJax) {
+      await MathJax.typesetPromise();
+    }
+  } catch (err) {
+    console.error(`loadContentsList error:`, err);
+  }
 }
 
 // 言語切り替えボタンの設定
