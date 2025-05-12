@@ -1,14 +1,16 @@
 {
     "ja": {
-      "readMore": "続きを読む",
-      "noTitle": "タイトルなし",
+      "fetchError": "データ取得に失敗しました:",
+      "noContents": "コンテンツがありません",
       "noIntro": "イントロなし",
-      "fetchError": "データ取得に失敗しました:"
+      "noTitle": "タイトルなし",
+      "readMore": "続きを読む"
     },
     "en": {
-      "readMore": "Read more",
-      "noTitle": "No title",
+      "fetchError": "Failed to fetch data:",
+      "noContents": "No contents here",
       "noIntro": "No introduction",
-      "fetchError": "Failed to fetch data:"
+      "noTitle": "No title",
+      "readMore": "read more"
     }
 }

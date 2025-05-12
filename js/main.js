@@ -1,4 +1,13 @@
-import { extractHtmlSnippet, insertContentHeading, loadSnsLinks, setFavicon, switchLang, wrapContentTitle, wrapDesignedText} from './utils.js';
+import {
+  extractHtmlSnippet,
+  importPluralize,
+  insertContentHeading,
+  loadSnsLinks,
+  setFavicon,
+  switchLang,
+  wrapContentTitle,
+  wrapDesignedText
+} from './utils.js';
 
 let siteSettings = {};  // サイトの設定情報を格納する変数
 let t = {};  // 翻訳データ
@@ -34,7 +43,7 @@ function readPage() {
   loadHeader();
   loadFooter();
   loadSnsLinks(siteSettings.sns);
-  loadArticles();
+  loadContentsList();
   insertContentHeading(siteSettings.contentTypes);
 }
 
@@ -58,7 +67,6 @@ function loadHeader() {
   fetch('/includes/header.html')
     .then(response => response.text())
     .then(html => {
-      // const siteName = wrapInitialLetters(siteSettings.siteName);
       html = html
         .replace(/{{siteName}}/g, siteSettings.siteName)
         .replace(/{{lang}}/g, lang)
@@ -84,56 +92,80 @@ function loadFooter() {
     .catch(err => console.error('Error loading footer:', err));
 }
 
-// 記事一覧の作成
-function loadArticles() {
-  const articleList = document.getElementById('article-list');
-  if (!articleList) return;
+// コンテンツ一覧の読み込み
+async function loadContents(contentType){
+  try {
+  pluralize = await importPluralize();
 
-  fetch('/data/articles.json')
+  const contentTypeS = pluralize(contentType).toLowerCase();
+  const contentsList = document.getElementById(`${contentTypeS}-list`);
+  if (!contentsList) return;
+
+  fetch(`/data/contents_list/${contentTypeS}.json`)
     .then(response => response.json())
-    .then(allArticles => {
-      const articles = allArticles
-        .filter(article => article.lang.includes(lang))
+    .then(allContents => {
+
+      if (!allContents || !Array.isArray(allContents) || allContents.length === 0) {
+        const noContentsMessage = document.createElement('div');
+        noContentsMessage.className = 'content no-contents-message';
+        noContentsMessage.textContent = t.noContents ?? 'No contents here.';
+        contentsList.appendChild(noContentsMessage);
+        return;
+      }
+      
+      const contents = allContents
+        .filter(contents => contents.lang.includes(lang))
         .sort((a, b) => new Date(b.created) - new Date(a.created));
 
-      fetch('/includes/article-summary.html')
+      fetch(`/includes/content-summary.html`)
         .then(response => response.text())
         .then(template => {
-          articles.forEach(file => {
-            fetch("articles/" + file.filename)
+          contents.forEach(file => {
+            const pathToContent = contentTypeS + '/' + file.filename
+            fetch(pathToContent)
               .then(response => response.text())
               .then(html => {
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = html;
                 const title = tempDiv.querySelector('.content-title')?.textContent.trim() || t.noTitle;
                 const mainText = tempDiv.querySelector('.content-text') || (() => {
-                  const fallback = document.createElement('div');
-                  fallback.innerHTML = t.noIntro;
-                  return fallback;
+                    const fallback = document.createElement('div');
+                    fallback.innerHTML = t.noIntro;
+                    return fallback;
                 })();
-                length = siteSettings.introLength[lang] ?? siteSettings.introLength.default;
+                const introLength = siteSettings.introLength[lang] ?? siteSettings.introLength.default;
 
                 const intro = extractHtmlSnippet(
                   mainText,
-                  length,
-                  ` <a href="articles/${file.filename}" class="read-more-link">......${t.readMore}</a>`
+                  introLength,
+                  ` <a href="${contentTypeS}/${file.filename}" class="read-more-link">......${t.readMore}</a>`
                 );
 
                 const summary = template
                   .replace(/{{title}}/g, title)
                   .replace(/{{intro}}/g, intro)
-                  .replace(/{{link}}/g, "articles/" + file.filename)
+                  .replace(/{{link}}/g, pathToContent);
 
                 const summaryDiv = document.createElement('div');
                 summaryDiv.innerHTML = summary;
-                articleList.appendChild(summaryDiv);
+                contentsList.appendChild(summaryDiv);
               })
-              .catch(err => console.error('Error loading article:', err));
+              .catch(err => console.error(`Error loading ${contentType}:`, err));
           });
         })
-        .catch(err => console.error('Error loading article template:', err));
+        .catch(err => console.error(`Error loading ${contentTypeS} summary template:`, err));
     })
-    .catch(err => console.error('Error loading articles data:', err));
+    .catch(err => console.error(`Error loading ${contentType} data:`, err));
+  } catch (err) {
+    console.error(`loadContents error for "${contentType}":`, err);
+  }
+}
+
+function loadContentsList() {
+  const contentTypes = Object.keys(siteSettings.contentTypes);
+  contentTypes.forEach(contentType => {
+    loadContents(contentType);
+  });
 }
 
 // 言語切り替えボタンの設定

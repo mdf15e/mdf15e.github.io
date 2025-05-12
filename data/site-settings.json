@@ -7,7 +7,7 @@
         "themeLightColor": "rgb(237, 241, 255)",
         "themeTransparentDarkColor": "rgba(14, 40, 143, 0.8)",
         "themeTransparentLightColor": "rgba(237, 241, 255, 0.85)",
-        "themeTextColor": "#333333",
+        "themeTextColor": "rgb(4, 13, 48)",
         "accentColor": "#e74c3c"
     },
     "fonts": {
@@ -19,21 +19,23 @@
         "arxiv": {
             "name": "arXiv",
             "url": "https://arxiv.org/search/hep-th?query=Takahashi%2C+Shunta&searchtype=author&abstracts=hide&order=-announced_date_first&size=200",
-            "icon": "/images/icons/arxiv-logo-white.png"
+            "icon": "/images/icons/arxiv-logo-white-red.png"
         },
-        "note": {
-            "name": "note",
-            "url": "https://note.com/vielb",
-            "icon": "/images/icons/note-logo.png"
+        "google-scholar": {
+            "name": "Google Scholar",
+            "url": "https://scholar.google.com/citations?user=lcvB1C8AAAAJ",
+            "icon": "/images/icons/google-scholar-logo.png"
         },
-        "x": {
-            "name": "X",
-            "url": "https://x.com/univkyoto",
-            "icon": "/images/icons/x-logo-white.png"
+        "inspire-hep": {
+            "name": "INSPIRE HEP",
+            "url": "https://inspirehep.net/authors/2779962",
+            "icon": "/images/icons/inspire-hep-logo.png"
         }
     },
     "introLength": { "default":150, "ja":135, "en": 200 },
     "contentTypes": {
-        "article": "Articles"
+        "article": "Articles",
+        "note": "Notes",
+        "update": "Updates"
     }
 }

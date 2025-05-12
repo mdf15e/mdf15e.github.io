@@ -3,7 +3,6 @@
 <HEAD>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name=""robots" content="noindex">
     <meta name="description" content="
         Home page of Shunta Takahashi, a PhD student in theoretical physics at Kyoto University.
     ">
@@ -15,10 +14,25 @@
     <div id="header"></div>
     <main>
         <h2 class="designed">
-            Articles
+            <!-- Homeなどのページ名 -->
         </h2>
-        <div id="articles-list"></div>
-    </main>
+        
+        <!-- 各項目 -->
+        <div class="content">
+            <h3 class="content-title">
+                <!-- タイトル -->
+            </h3>
+            <hr class="ruler">
+            <div class="content-text">
+                <!-- 本文 -->
+            </div>
+        </div>
+
+        <!-- 記事一覧 -->
+        <!-- {{contents}}を変えて以下のdivのみ記述すれば良い -->
+        <div id="{{contents}}-list"></div>
+
+    </main>      
     <div id="footer"></div>
 </body>
 </HTML>

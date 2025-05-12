@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /* color setting */
@@ -10,16 +11,17 @@
     --theme-transparent-dark: rgba(0, 0, 0, 0.8);
     --theme-transparent-light: rgba(255, 255, 255, 0.8);
     --theme-text: #000000;
+    --theme-background: #ffffff;
     --accent-color: #ff0000;
     --title-font: "Times", serif;
     --body-font: "Times", serif;
-    --icon-image: url('/images/icons/ST-icon.png');
+    --icon-image: url('/images/icons/ST-icon-blue.png');
 }
 
 /* tag */
 
 a {
-    color: var(--theme-dark);
+    color: var(--theme-text);
     text-decoration: underline;
 }
 
@@ -31,18 +33,48 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-image: var(--icon-image);
-    background-size: 30vh;
+    background-size: 30vw; 
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: white;
-    color: black;
+    background-color: var(--theme-background) 0.8;
+    color: white;
+    overflow-x: hidden;
+}
+
+h2 {
+    color: var(--theme-dark);
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0em 0.3em;
+    border-radius: 0.1em;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
 }
 
 main {
-    margin: 0;
-    padding: 0 10%;
     flex: 1;
+    margin: 0, auto;
+    padding: 0 5vw; /* 画面幅に応じた相対padding */
+    max-width: 100vw;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* id */
+#redirect {
+    font-size: min(8vw, 3em);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* class */
@@ -51,13 +83,14 @@ main {
     font-family: var(--title-font);
     color: var(--theme-dark);
 }
+
 .iconed{
     display: inline-flex;
     align-items: center;
-    padding-left: 1.2em; /* 左側に余白を確保（背景画像がはみ出ないように） */
+    padding-left: 1.0em; /* 左側に余白を確保（背景画像がはみ出ないように） */
     background-image: var(--icon-image);
     background-repeat: no-repeat;
-    background-position: 0.3em center;
+    background-position: 0.1em center;
     background-size: 0.8em 0.8em; /* 必要に応じてサイズ調整 */
 }
 
@@ -77,9 +110,11 @@ main {
 
 .content {
     background-color: var(--theme-transparent-light);
-    color: rgb(4, 13, 48);
-    margin: 0rem auto 1rem auto;
-    padding: 0.3rem 2rem 0.8rem;
+    color: var(--theme-text);
+    margin: 0em auto 1em auto;
+    padding: 0.3em 1.5em 0.8em;
+    box-shadow: 0.1em 0.1em 0.2em var(--theme-transparent-dark);
+    border-radius: 0.1em;
 }
 
 .content a {
@@ -89,6 +124,7 @@ main {
 
 .content .content-title a {
     color: inherit;
+    text-decoration: none;
 }
 
 .first-letter{
@@ -96,6 +132,10 @@ main {
     vertical-align: baseline;
     display: inline;
     color: var(--theme-dark);
+}
+
+.gap-1rem {
+    margin: 1rem;
 }
 
 .indented{
@@ -106,6 +146,15 @@ main {
     margin-left: 2em;
 }
 
+.no-contents-message{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    background-color: var(--theme-transparent-light);
+    color: var(--theme-text);
+}
+
 .nodeco{
     text-decoration: none;
 }
@@ -113,12 +162,22 @@ main {
 .ruler{
     border: none;
     height: 1px;
-    background-color: rgb(4, 13, 48);
+    background-color: var(--theme-text);
     margin: 0 0 0.5rem 0;
 }
 
-.gap-1rem {
-    margin: 1rem;
+.sns-icon{
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 0.2em;
+    vertical-align: middle;
+}
+
+.small-sns-icon{
+    width: 1.0em;
+    height: 1.0em;
+    margin: 0 0.2em;
+    vertical-align: middle;
 }
 
 /* header */
@@ -130,7 +189,7 @@ header {
     flex-wrap: wrap;
     font-family: var(--title-font);
     text-align: center;
-    background-color: white;
+    background-color: transparent;
     color: var(--theme-dark);
     margin: 2rem 0 0 0;
     padding: 0;
@@ -140,6 +199,10 @@ header {
 header h1 {
     flex: 1;
     text-align: center;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0em 0.3em;
+    border-radius: 0.1em;
 }
 
 header h1 a {
@@ -169,7 +232,10 @@ header h1 a {
 
 .tab {
     font-size: 1.1rem;
-    margin: 0 0.2rem;
+    margin: 0 0.4rem;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.3em;
 }
 
 .tab:hover {
@@ -187,6 +253,46 @@ footer {
   margin-top: 1rem;
   font-family: var(--title-font);
 }
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 .footer-nav {
   margin-top: 1rem;
+}
+
+/* media query */
+@media (max-width: 530px) {
+    #tab-container {
+        flex-direction: column; /* タブを縦並びに */
+        align-items: center;
+    }
+
+    .tab {
+        margin: 0.3rem 0;
+    }
+}
+
+@media (max-width: 620px) {
+    header {
+        flex-direction: column; /* 横並び→縦並び */
+        align-items: center;
+        text-align: center;
+    }
+
+    header h1 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    #language-switcher {
+            position: static; /* absoluteをやめて自然な位置に */
+        margin-bottom: 1rem;
+    }
 }

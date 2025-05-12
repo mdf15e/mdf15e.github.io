@@ -56,6 +56,21 @@ export function extractHtmlSnippet(domNode, limit = 100, suffix = '') {
   return wrapper.outerHTML;
 }
 
+export function importPluralize() {
+  return new Promise((resolve, reject) => {
+    if (window.pluralize) {
+      resolve(window.pluralize); // 👈 関数を返す
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/pluralize@8.0.0/pluralize.min.js";
+    script.onload = () => resolve(window.pluralize);
+    script.onerror = () => reject(new Error("Failed to load pluralize"));
+    document.head.appendChild(script);
+  });
+}
+
 export function insertContentHeading(typeToLabel) {
   document.querySelectorAll('div.content[data-content-type]').forEach(div => {
     const previous = div.previousElementSibling;
@@ -94,12 +109,17 @@ export function loadSnsLinks(snsdata){
         const img = document.createElement('img');
         img.src = icon;
         img.alt = platform;
-        img.style.width = '1.5em';
-        img.style.height = '1.5em';
-        img.style.margin = '0 0.2em';
+        img.classList.add('sns-icon');
+        link.classList.forEach(cls => {
+          if (cls !== "sns-link") img.classList.add(cls)
+        });
         a.appendChild(img);
+        if (link.textContent) {
+          const textNode = document.createTextNode(link.textContent);
+          a.appendChild(textNode);
+        }
       } else {
-        a.textContent = platform;
+        a.textContent += link.textContent ?? platform;
       };
 
       link.replaceWith(a);
