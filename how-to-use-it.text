@@ -85,8 +85,9 @@ editted by: Manaka Harumichi
     ・サイトの名前,タイトル
         - site-settings.jsonのsiteName,siteTitleを変更．
         - siteNameはheaderに表示されるもの．siteTitleはブラウザのタブに表示されるもの．
-    ・icon
+    ・icon,背景画像
         - site-settings.json.iconImageを変更．
+        - 背景画像のみ変えたい場合は，/css/style.cssの#fixed-bgを参照．
     ・sns
         - site-settings.json.snsを変更．
     ・テーマ色やフォント，アイコンを変更
