@@ -87,7 +87,7 @@ main {
     width: 100vw;
     height: 100vh;
     background-image: var(--icon-image);
-    background-size: 30vw;
+    background-size: min(45vw, 40vh);
     background-repeat: no-repeat;
     background-position: center;
     z-index: -1;
