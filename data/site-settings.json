@@ -37,5 +37,12 @@
         "article": "Articles",
         "note": "Notes",
         "update": "Updates"
+    },
+    "mathjax": {
+        "tex": {
+        "inlineMath": [["$", "$"]],
+        "displayMath": [["$$", "$$"]],
+        "tags": "ams"
+        }
     }
 }

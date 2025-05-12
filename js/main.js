@@ -73,8 +73,8 @@ function applyTheme() {
 function addToHead() {
   window.MathJax = {
     tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      inlineMath: siteSettings.mathjax.tex.inlineMath,
+      displayMath: siteSettings.mathjax.tex.inlineMath,
       tags: 'ams'
     },
     options: {
