@@ -32,12 +32,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: var(--icon-image);
-    background-size: 30vw; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: var(--theme-background) 0.8;
     color: var(--theme-text);
     overflow-x: hidden;
 }
@@ -86,6 +80,19 @@ main {
 }
 
 /* id */
+#fixed-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--icon-image);
+    background-size: 30vw;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+}
+
 #redirect {
     font-size: min(8vw, 3em);
     position: absolute;
@@ -216,7 +223,7 @@ header h1 {
     flex: 1;
     text-align: center;
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
     padding: 0em 0.3em;
     border-radius: 0.1em;
 }
