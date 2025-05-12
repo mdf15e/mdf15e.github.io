@@ -4,9 +4,9 @@
     "langs": ["ja", "en"],
     "colors": {
         "themeDarkColor": "rgb(14, 40, 143)",
-        "themeLightColor": "rgb(237, 241, 255)",
+        "themeLightColor": "rgb(237, 247, 255)",
         "themeTransparentDarkColor": "rgba(14, 40, 143, 0.8)",
-        "themeTransparentLightColor": "rgba(237, 241, 255, 0.85)",
+        "themeTransparentLightColor": "rgba(237, 247, 255, 0.9)",
         "themeTextColor": "rgb(4, 13, 48)",
         "themeBackgroundColor": "rgb(255,255,255)",
         "accentColor": "#e74c3c"
