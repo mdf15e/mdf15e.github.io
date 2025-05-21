@@ -469,7 +469,7 @@ export function wrapInitials(targetTag, doneClass, classToAdd) {
         }
 
         textNodes.forEach(textNode => {
-            const parts = textNode.textContent.split(/([ \-･]+)/);
+            const parts = textNode.textContent.split(/([ \-･/]+)/);
 
             const fragment = document.createDocumentFragment();
 
