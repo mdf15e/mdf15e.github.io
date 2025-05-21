@@ -1,0 +1,35 @@
+{
+    "htmlPartials": {
+        "footer": {
+                "url": "/includes/footer.html",
+                "loadToAllPages": true,
+                "target": "body",
+                "position": "beforeend",
+                "tags": []
+            },
+        "header": {
+                "url": "/includes/header.html",
+                "loadToAllPages": true,
+                "target": "body",
+                "position": "afterbegin",
+                "tags": []
+            },
+        "date-in-contents": {
+
+        }
+    },
+    "scripts": {
+            "MathJax": {
+                "url": "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
+                "defer": false,
+                "loadToAllPages": false,
+                "tags": ["mathjax"]
+            },
+            "pluralize": {
+                "url": "https://cdn.jsdelivr.net/npm/pluralize@8.0.0/pluralize.min.js",
+                "defer": true,
+                "loadToAllPages": false,
+                "tags": ["__PLACEHOLDER__-list"]
+            }
+    }
+}

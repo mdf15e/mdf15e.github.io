@@ -1,0 +1,383 @@
+HOW TO USE IT
+
+last editted: 2025-05-19
+editted by: Harumichi Yamamoto
+
+<チュートリアル>
+    #pageを作成してみよう
+        ユーザーが操作するのは基本的に以下のものです.
+
+            /ja: このディレクトリの中に公開するファイルを保存していきます.
+            /en: 英語版はこっちに保存します.
+
+        試しに一つページを作ってみましょう.以下のファイルを探してください.
+
+            /templates/ content.html
+                        page.html <-これ
+
+        この/templatesディレクトリの中にはテンプレートが入っているので,これをコピペして作るようにしましょう.
+        ではpage.htmlをjaの中にコピーしてください./jaは以下のようになりましたか？
+
+            /ja/examples
+                examples.html
+                index.html
+                page.html <-追加された
+
+        ではpage.htmlの名前をabout.htmlに変更しましょう.(名前は何でも構いません)
+
+            /ja/examples
+                examples.html
+                index.html
+                about.html <-名前を変更した
+        
+        ではabout.htmlを開いてみましょう.
+        
+            <main>
+            <h2>
+                <!-- page title -->
+            </h2>
+            <!-- sentences -->
+            <div class="box">
+                <h3 class="box-title"><!-- some title --></h3>
+                <hr>
+                <!-- some texts -->
+            </div>
+            </main>
+        
+        中央部分はこんな感じになってますね.基本的に編集するのはこの<main>と</main>に囲われている部分です.
+        <!-- page-title -->の部分をAboutと書き換えましょう.(Aboutでなくても良いです.以下同様)
+
+            <h2>
+                About <-書き換えた
+            </h2>
+
+        これがこのページのタイトルになります.
+        <!-- sentences -->の部分も書き換えましょう.
+
+            <h2>
+                About
+            </h2>
+            私は金木犀が好きです. <-書き換えた
+
+        ここがあなたがメインで文章を書いていく場所になります.
+        もし文章を四角で囲みたくなったら,
+
+            <div class="box">
+                <h3 class="box-title"><!-- some title --></h3>
+                <hr>
+                <!-- some texts -->
+            </div>
+
+        を使ってみましょう.<!-- some title -->がタイトル,<!-- some texts -->が文章を書く場所になります.
+        
+            <div class="box">
+                <h3 class="box-title">秋の定義</h3>
+                <hr>
+                金木犀の香りの閉包を秋と呼ぶ.
+            </div>
+
+        こうすると文章とタイトルが枠で囲まれ,タイトルが装飾されます.
+        ページ上部の帯の部分(ナビゲーションと言います)にAboutがないのが気になりますね.
+        /includesディレクトリ内のheader.htmlを開いてみましょう.
+        
+            /includes/  content-summary.html
+                        footer.html
+                        head-en.html
+                        head-ja.html
+                        header.html <-これ
+
+        開いてみるとこんな感じ
+
+            <nav id="site-nav">
+                <ul>
+                    <li class="with-light-icon nav-item"><a href="/{{lang}}/index.html">Home</a></li>
+                    <li class="with-light-icon nav-item"><a href="/{{lang}}/examples.html">Examples</a></li>
+                </ul>
+            </nav>
+
+        ここがナビゲーションの部分です.ここにAboutを書き加えましょう.
+
+            <nav id="site-nav">
+                <ul>
+                    <li class="with-light-icon nav-item"><a href="/{{lang}}/index.html">Home</a></li>
+                    <li class="with-light-icon nav-item"><a href="/{{lang}}/about.html">About</a></li> <-書き加えた
+                    <li class="with-light-icon nav-item"><a href="/{{lang}}/examples.html">Examples</a></li>
+                </ul>
+            </nav>
+
+        /{{lang}}/のあとはファイル名を記述します.これでナビゲーションにAboutが追加されました.
+        このようにナビゲーションに追加するページをpageと呼びます.
+
+    #contentを作成してみよう
+        このホームページテンプレートではpageの他にもう一種類のcontentというページを用意しています.
+        contentは例えば日記を書く際に用いることができます.日記は一日一日の日記からなる記事群です.
+        一日の日記を作成しそれを一覧で表示できるとよさそうですが,contentを用いるとそれを実現できます.
+        一日の日記をcontentで作成し,それの一覧を表示するpageを作成できます.
+        具体的にやってみましょう.すでにexampleというcontentがあるので参考にしてください.(必要なくなったら消去して大丈夫です)
+
+        * content typeを新規作成する
+            まずdiaryという新しいcontentの種類(content typeと言います)を作成します.
+            そのために1つのファイルを編集,2つのファイル,2つのディレクトリを作成します.
+            まず/dataディレクトリ内のconfig.jsonを編集します.
+
+                /data/  contents_list
+                        config.json <-これ
+                        settings.json
+
+            config.json内のcontentTypeの項目にdiaryを追加します.
+
+                "contentTypes": {
+                    "example": {"ja":"例","en":"examples"}, <-,を追加した
+                    "diary": {"ja":"日記","en":"diaries"} <-追加した
+                },
+
+            前の項目の最後に,を追加するのを忘れないように注意してください.
+            ja,enそれぞれの後には各言語でのcontentの名前を記入します.ナビゲーションなどにも表示されるので英語は複数形推奨です.
+            続いて/data/contents_listディレクトリ内にdiaries.json(content typeの複数形)というファイルを作成します.
+            これはpageでdiaryを一覧表示するためのものです.contentを作成した際に,その情報をここに追加します.
+            contents_listディレクトリ内のexamples.jsonの中身をdiariesにコピーアンドペーストして凡例を書いておきましょう.
+            次に/jaの中に/template内のpage.htmlをコピーアンドペーストしてdiaries.html(content typeの複数形)という名前でpageを作成します.
+            このpageはdiaryの一覧を表示するためのものです.必要なら/enの中にもコピペして作成しましょう.
+
+                /ja/examples
+                    diaries.html <-作成した
+                    examples.html
+                    index.html
+
+            ではこのpageを編集しましょう.
+            bodyのdata-tags属性にdiaries-list(content typeの複数形-list)を追加し,id="diaries-list"(content typeの複数形-list)を付したdivを記入します.
+
+                <body data-tags="diaries-list">
+                <main>
+                <div id="diaries-list"></div>
+                </main>
+                </body>
+            
+            bodyのdata-tags属性diaries-listでdiaryの一覧用のpageであることを伝えます.
+            id属性diaries-listのdivの位置に一覧が表示されます.
+            最後に/jaの中にdiaryを保存するためのdiariesというディレクトリを作成しましょう.
+            
+                /ja/diaries <-作成した
+                    examples
+                    diaries.html
+                    examples.html
+                    index.html
+            必要なら/enの中にも同様に作成しましょう.
+            これでdiaryというcontent typeの作成が完了しました.
+        
+        * contentの作成
+            diaryを作成してみましょう.
+            /templateディレクトリ内にあるcontent.htmlを/ja/diariesの中にコピぺしてdiary1.html(名前は何でも良い)を作成しましょう.
+
+                /ja/diaries/diary1.html <-作成した
+
+            diary1.htmlを開いて編集してみましょう.基本的に<main>と</main>で囲われた内側を編集します.
+            <!-- content title -->と書いてある部分をタイトルに置き換えます.
+            そして<!-- content texts -->と書いてある部分を日記の中身に書き換えます.
+
+                <main>
+                <div class="content">
+                    <h3 class="content-title">2014年10月</h3> <-書き換えた
+                    <hr>
+                    <div class="content-text">
+                        金木犀の香りが少しずつし始めている. <-書き換えた
+                    </div>
+                </div>
+                </main>
+
+            必要なら英語版を/en/diariesの中にも同様に作成しましょう.この時日本語版とファイル名は統一してください.
+            完成したら記事の情報を/data/contents_list内のdiaries.jsonに書き込みましょう.
+
+                {
+                    "filename": "diary1.html",  <-ファイル名
+                    "lang": ["ja"],             <-英語版もあるなら["ja","en"]
+                    "created": "2014-10-02",    <-作成日
+                    "updated": "2014-10-03",    <-更新日
+                    "tags": {
+                        "ja":["金木犀"],         <-日本語でのタグを記入.
+                        "en":["osmanthus"]      <-英語でのタグを記入.
+                    }
+                }
+
+            これで作成は完了です.
+            
+以下,このファイル内では{{kamo}}のように{{,}}で囲むことで変数を表す.詳しくは#html内の変数を参照.
+
+<設計思想>
+    保守性を意識して作成した.静的サイトでビルダーなしでできることを頑張ってやってみました.
+    基本的に変更が想定されるものはconfig.jsonの編集（と悔しながらupdate.pyの実行）によってできるようにした.
+    また
+        基本的な変更 -> /data/config.json（テーマカラー,snsリンクなど）
+        外観の複雑な変更 -> /css/style.css
+        内部機構の変更 -> /js/main.js,utils.js
+        htmlファイルの追加,編集 -> /{{lang}}, /includes
+    と,jsでhtmlやcssの記述をすることがないように,編集したいときどこを見ればいいかわかりやすいようにした.
+    さらにbodyのdata-tags属性を使うことでhtmlや外部ライブラリを特定の種類のページに自動で読み込めるようにした.
+
+<ディレクトリ構造>
+    /css: css用.
+        style.css: cssファイルはこれのみ.
+
+    /data: jsが参照するファイル用.
+        /contents_list: contentを一覧表示する際に参照するファイル用.
+        config.json: ユーザーが変更できる設定を格納.
+        settings.json: ユーザーが変更するべきでない設定を格納.
+
+    /images: 画像用.
+        /icons: サイトアイコンやsnsアイコン用.
+
+    /includes: jsが読み込んで使用するhtmlファイル用.
+
+    /js: js用.
+
+    /locales: 翻訳用.
+
+    how-to-use-it.text: この説明書.愛情がこもってる.
+
+    index.html: ルートにアクセスしたときにリダイレクトするためのhtmlファイル.
+
+    update.py: headを変更する際に走らせる
+
+    /{{lang}}: 言語ごとのhtmlファイル保管ディレクトリ.
+        /{{contentTypeS}}: contentのhtmlファイルを保管するディレクトリ.
+
+<初期設定>
+    #/index.html
+        rootにアクセスしたときに表示するリダイレクト先を記述.デフォルトは/ja/index.html.
+    #必要なpage,contentTypeを,『更新の仕方』の項を参考に作成する.
+    #スマホ画面対応の調整をする.
+        * /css/style.css,media query内の@media(max-width=kamo)のkamoの数値を調整する.
+        * これによってどのぐらいの画面幅で言語切替ボタンやナビゲーション(pageへのリンク)の配置が変化するかが決まる.
+
+<htmlについて>
+    #scriptの読み込み
+        * 基本的には各ページでheadに記述して読み込む.
+        * よく使う項目はbodyにdata-src属性として追加することで読み込める.
+            - /data/config.jsonのscriptsに使用したいscriptを追加する.
+                url: スクリプトのurl.
+                defer: deferをつけるならtrue,でなければfalse.
+                loadToAllPages: 全てのページに読み込む場合true,でなければfalse.
+                tags: スクリプトを読み込むhtmlファイルのbodyのdata-tags属性に追加するタグを記述.
+            - tagsに記述したtagをbodyのdata-scr属性に空白区切りで記述すると読み込まれる.
+            - bodyのdata-scr属性にscriptNameを小文字,空白区切りで記述しても読み込まれる.
+
+    #html内の変数
+        * htmlのテキストや属性に変数名を{{と}}で囲ったものを記述することで,変数を使用できる.
+        * 変数はconfigの中の項目をドット記法で参照する.
+        * config以外のファイルの中を参照するには,{{path:dot-notation}}のようにファイルのrootからの絶対パスとドット記法を:で区切って記述する.
+        * {{lang}},{{langLabel}},{{altLang}},{{altLangLabel}}は予約されていてurl先頭にある言語を参照する.
+        * 特定の関数に参照させるなど変数っぽく書きたいけど変換されたくない時には{{#kamo}}と#を頭につける.
+
+    #数式
+        * bodyのdata-tags属性にmathjaxを追加することでMathJaxを使用できる.
+        * inlineは\(と\)で,displayは\[と\]で囲うことでTeXの記法が使える.
+        * これらのdelimiterは/data/config.jsonのmathjax内で変更可能だが,$を用いたものはうまく行かないことが多い.
+
+    #headの変更
+        * main.jsの読み込み,SOE系のmetaタグは各htmlに書き込む.
+        * 一括変更はincludes/head-ja.html,head-en.htmlを変更して/update.pyを実行することでできる.（head.htmlを書き換えただけでは変更されない）
+        * update.pyを実行するためにターミナルでルートディレクトリに移動し下記を実行.
+            python update.py <lang>
+        * update.pyは引数を一つ取り,日本語版を変更するならjaを,英語版ならenを入力.
+        * update.pyはhtmlファイル内のキー
+            <!-- KEY:kamo -->
+            <!-- ENDKEY -->
+        で囲まれた部分(kamoは変数)を指定されたテンプレートファイルの中身と置き換えるようになっている.
+
+    #テキストの装飾
+        * 一部の文字のみへの文字装飾
+            - first-letter,initialsというclass属性に付与されるcssがその装飾をコントロールしている.
+            - これらはmain.jsのafterLoadDOM内で実行される関数で特定のclass属性を持つ要素のclass属性に追加される.
+
+    #各要素などの管理状況
+        * <head>
+            - 基本,main.jsのaddToHeadを通じて制御している.
+            - jsが読み込まれる前に必要なmetaタグなどは/includes/head.htmlをupdate.pyで手動でhtmlに反映.
+        * script
+            - 外部スクリプトを/data/config.jsonのscriptsに設定し,htmlのbodyにdata-tags属性で付与をコントロール.
+        * <header>
+            - 基本/includes/header.htmlをmain.jsのloadHTMLPartialsで挿入している.
+            - htmlファイルには書いた場合,そちらが優先される.
+        * <footer>
+            - /includes/footer.htmlをmain.jsのloadHTMLPartialsで挿入している.
+            - htmlファイルには書いた場合,そちらが優先される.
+        * 背景画像
+            - headerにid属性がbg-imageのdivとして格納している.（スマホ対応のため）
+
+    #htmlの自動読込
+        * 特定のtag(bodyのdata-tags属性)を有するhtmlファイルにjsで自動的にhtmlファイルを埋め込むように設定できる.
+        * やり方は以下.
+        * /includes内(推奨)に挿入したいhtmlファイルを作成する.
+        * /data/config.jsonのhtmlPartialsに項目を追加する.
+            - url: 挿入するhtmlファイルへのパス.
+            - loadToAllPages: 全てのページに読み込む場合true,でなければfalse.
+            - target: 挿入する位置の基準となる要素.cssセレクターが使える.
+            - position: targetに対してどの位置で挿入するか.以下が使用可能.
+                beforestart: targetの直前に挿入.
+                afterstart: targetの一番最初の子要素として挿入.
+                beforeend: targetの一番最後の子要素として挿入.
+                afterend: targetの直後に挿入.
+            - tags: 挿入先のhtmlファイルのbodyのdata-tags属性に追加するタグを記述.
+        * 挿入先のhtmlファイルのbodyのdata-tags属性に追加するタグを記述する.
+
+<更新の仕方>
+    #記事の種類
+        * pageとcontentの2種類がある.
+        * page
+            - /{{lang}}内にあるindex.htmlなどのページ.
+            - site-nav(ページ上部に表示されるHomeなどの項目群)に表示される.
+        * content
+            - /{{lang}}/{{contentTypeS}}内にあるページ.contentTypeという種類を持つ.
+            - 連載記事のようなイメージ.
+            - /{{lang}}/{{contentTypeS}}.htmlにcontentTypeのcontentが一覧で表示される.
+
+    #pageの作成,編集
+        * /{{lang}}内の編集したいpageのhtmlファイルを(必要なら作成し)編集する.
+        * 必要なら他言語のhtmlも(必要なら作成し)編集する.
+        * /includes/header.htmlにリンクを記述する.
+        *　以下テンプレートについての説明
+            - 全てmain内に記述.
+            - h2要素でページタイトルを追加.
+            - 以下の背景をつけるならば以下に従う.
+                divにclass="box"を付したもので項目全体を囲う.
+                div class="box"の子要素として,h3要素にclass="box-title"を付したもので項目のタイトルを記入する.文字装飾される.
+                その直後に<hr>を配置.
+                さらにその直後に本文を記述.
+            - contentの一覧を作りたいときはbodyのdata-tags属性に{{contentTypeS}}-listを追加し,id="{{contents}}-list"を付したdivを書く.中身はなくて良い.
+            - 一覧の1ページに表示される記事の個数は/data/config.jsonのcontentSummary内itemsPerPageで変更可能.
+            - 一覧に表示されるイントロの文字数は/data/config.jsonのcontentSummary内introLengthで変更可能.
+
+    #contentの作成,編集
+        * contentの種類をcontentType,その複数形をcontentTypeSと表記する.
+        * /{{lang}}/{{contentTypes}}内の編集したいhtmlファイルを(必要なら作成し)編集する.
+        * 必要なら他言語のhtmlも(必要なら作成し)編集する.
+        * 新規作成した場合,/data/contents_list/{{contentTypeS}}.jsonに記事の情報を追加する.
+        * 新規作成でない場合も/data/contents_list/{{contentTypeS}}.jsonの更新日時などを編集する.
+        * 以下テンプレートについての説明
+            - 全てmain内に記述.
+            - bodyのdata-tags属性に"content"を追加.
+            - divにclass="content"を付したもので全体を囲う.
+            - div class="content"の子要素として,h3要素にclass="content-title"を付したものでタイトルを記入する.文字装飾される.
+            - div class="content"の子要素のdivでclass="content-text"を付したものが本文扱いで,その最初150文字以下が一覧にイントロとして表示される.
+            - イントロの文字数は/data/config.jsonのcontentSummary内introLengthで変更可能.
+            - page同様,box,box-titleも使用可能.
+
+    #contentTypeの新規作成
+        * contentの種類をcontentType,その複数形をcontentTypeSと表記する.
+        * /data/config.jsonのcontentTypes内にcontentTypeの項を追加.
+            - ja: {{contentTypeS}}の日本語表記.
+            - en: {{contentTypeS}}の英語表記(複数形推奨).
+        * /data/contents_list内に{{contentTypes}}.jsonを作成する.
+        * /{{lang}}内に{{contentTypeS}}.htmlを作成する.bodyのdata-tags属性に{{contentTypes}}-listを追加する.
+        * {{contentTypeS}}.html内にid属性が{{contentTypeS}}-listのdivを作成すると,それが記事一覧に置き換わる.
+        * 一覧の1ページに表示される記事の個数は/data/config.jsonのcontentSummary内itemsPerPageで変更可能.
+        * 一覧に表示されるイントロの文字数は/data/config.jsonのcontentSummary内introLengthで変更可能.
+
+<デザイン>
+    #テーマカラー
+        * テーマカラーは/data/config.jsonのcolors内のthemeに,colorBookにある色を記述することで変更できる.
+        * colorBookに項目を追加することでカスタムも可能.
+    #文字装飾
+        * h1,h2は単語の頭文字に.initialsが,h3は最初の1文字に.first-letterがclass属性にjsで自動的に追加される.
+        * デザインを変えたい場合は.initialsや.first-letterを編集.
+        * 文字装飾が施される要素を変えたかったらmain.jsのafterLoadingDOM内のwrapInitialsやwrapFirtsLetterを編集.

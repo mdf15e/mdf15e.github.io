@@ -1,21 +1,21 @@
 <header>
-    <h1 class="designed">
-        <a href="/{{lang}}/home.html">{{siteName}}</a>
-    </h1>
-    <nav id="language-switcher">
-        <button data-lang="en">English</button>
-        <button data-lang="ja">日本語</button>
-    </nav>
-</header>
+    <div id="bg-image"></div>
+    <div id="header-top">
+        <h1>
+            <a href="/{{lang}}/index.html">Shunta Takahashi</a>
+        </h1>
+        <nav id="language-switcher">
+            <button data-lang={{altlang}}>{{altlangLabel}}</button>
+        </nav>
+    </div>
 
-<div id="fixed-bg"></div>
-
-<hr id="header-hr">
-
-<nav id="tab-container">
-    <a href="/{{lang}}/home.html" class="iconed tab nodeco">Home</a>
-    <a href="/{{lang}}/research.html" class="iconed tab nodeco">Research</a>
-    <a href="/{{lang}}/papers-talks.html" class="iconed tab nodeco">Papers/Talks</a>
-    <a href="/{{lang}}/notes.html" class="iconed tab nodeco">Notes</a>
-    <a href="/{{lang}}/updates.html" class="iconed tab nodeco">Updates</a>
+<nav id="site-nav">
+    <ul>
+        <li class="with-light-icon nav-item"><a href="/{{lang}}/index.html">Home</a></li>
+        <li class="with-light-icon nav-item"><a href="/{{lang}}/research.html">Research</a></li>
+        <li class="with-light-icon nav-item"><a href="/{{lang}}/papers-talks.html">Papers/Talks</a></li>
+        <li class="with-light-icon nav-item"><a href="/{{lang}}/notes.html">Notes</a></li>
+        <li class="with-light-icon nav-item"><a href="/{{lang}}/updates.html">Updates</a></li>
+    </ul>
 </nav>
+</header>

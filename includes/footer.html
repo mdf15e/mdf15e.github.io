@@ -2,11 +2,17 @@
     <div class="footer-container">
         <div class="footer-content">
             <p>© 2025 Shunta Takahashi. All rights reserved.</p>
-            <p>Powered by <a href="https://note.com/manaka_kamogawa" target="_blank">Harumichi Manaka</a>.</p>
-            <nav class="gap-1rem">
-                <div class="sns-link" data-platform="arxiv"></div>
-                <div class="sns-link" data-platform="google-scholar"></div>
-                <div class="sns-link" data-platform="inspire-hep"></div>
+            <p>Powered by <a href="https://mnkhrmch.github.io" target="_blank">Harumichi Manaka</a>.</p>
+            <nav>
+                <a href="{{sns.arxiv.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.arxiv.icon}}" alt="{{sns.arxiv.name}}" class="sns-icon">
+                </a>
+                <a href="{{sns.google-scholar.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.google-scholar.icon}}" alt="{{sns.google-scholar.name}}" class="sns-icon">
+                </a>
+                <a href="{{sns.inspire-hep.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.inspire-hep.icon}}" alt="{{sns.inspire-hep.name}}" class="sns-icon">
+                </a>
             </nav>
         </div>
     </div>
