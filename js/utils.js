@@ -474,7 +474,7 @@ export function wrapInitials(targetTag, doneClass, classToAdd) {
             const fragment = document.createDocumentFragment();
 
             parts.forEach(part => {
-                if (part.match(/([ \-･]+)/)) {
+                if (part.match(/([ \-･/]+)/)) {
                     fragment.appendChild(document.createTextNode(part));
                 } else if (part.length > 0) {
                     const span = document.createElement('span');
