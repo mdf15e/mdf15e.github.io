@@ -40,7 +40,6 @@ async function buildContentSummary(filename, meta, index, contentTypeS, template
         ` <a href="${pathToContent}" class="read-more-link">......${t.readMore}</a>`
     );
 
-    console.log(meta.created);
     const summaryHTML = template
         .replace(/{{title}}/g, title)
         .replace(/{{createdOn}}/g, t.createdOn)
@@ -197,7 +196,6 @@ export async function interpolate(template, env) {
                     value = unknown;
                 }
             }
-            console.log("interpolating", key, "→", value);
 
             return { match: fullMatch, value: value !== undefined ? value : unknown };
         })

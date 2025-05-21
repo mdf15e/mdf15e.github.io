@@ -20,8 +20,8 @@
     --theme-bg: #ffffff;
     --theme-tp-bg: rgba(255, 255, 255, 0.4);
     --accent-color: #ff0000;
-    --icon-image-dark: url('/images/icons/icon-blue.png');
-    --icon-image-light: url('/images/icons/icon-white.png');
+    --icon-image-dark: url('/images/icons/ST-icon-blue.png');
+    --icon-image-light: url('/images/icons/ST-icon-white.png');
     /* jsで上書きされない */
     --theme-font: Courier, monospace, serif;
     --normal-font: Arial, sans-serif, serif;
