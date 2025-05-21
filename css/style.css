@@ -285,7 +285,7 @@ main {
         0.1em -0.1em 0.2em var(--theme-bg),
         -0.1em 0.1em 0.2em var(--theme-bg),
         -0.1em -0.1em 0.2em var(--theme-bg);
-    margin: 2em 4em;
+    margin: 2em min(4em,5vw);
     flex: 1;
 }
 
