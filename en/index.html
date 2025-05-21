@@ -51,9 +51,18 @@
         <hr class="ruler">
         <div class="box-text">
             <!-- links: INSPIRE HEP, Google Scholar, arXiv -->
-            <div class="sns-link small-sns-icon" data-platform="arxiv"><span class="nodeco">arXiv</span></div>
-            <div class="sns-link small-sns-icon" data-platform="google-scholar">Google Scholar</div>
-            <div class="sns-link small-sns-icon" data-platform="inspire-hep">INSRIRE HEP</div>
+            <a href="{{sns.arxiv.url}}" target="_blank" rel="noopener noreferrer">
+                <img src="{{sns.arxiv.icon}}" alt="{{sns.arxiv.name}}" class="sns-icon">
+                {{sns.arxiv.name}}
+            </a>
+            <a href="{{sns.google-scholar.url}}" target="_blank" rel="noopener noreferrer">
+                <img src="{{sns.google-scholar.icon}}" alt="{{sns.google-scholar.name}}" class="sns-icon">
+                {{sns.google-scholar.name}}
+            </a>
+            <a href="{{sns.inspire-hep.url}}" target="_blank" rel="noopener noreferrer">
+                <img src="{{sns.inspire-hep.icon}}" alt="{{sns.inspire-hep.name}}" class="sns-icon">
+                {{sns.inspire-hep.name}}
+            </a>
             <br>
             [1] <u>S. Takahashi</u>, "Anyon Condensation in Virasoro TQFT: Wormhole Factorization,""
             [<a href="https://arxiv.org/abs/2412.11486">arXiv:2412.11486</a>]

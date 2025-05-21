@@ -204,13 +204,14 @@ button:hover{
 body {
     margin: 0em;
     min-height: 100vh;
+    min-width: 100vw;
     display: flex;
     flex-direction: column;
 }
 
 footer {
     background-color: var(--theme-dark);
-    padding: 4em 1em;
+    padding: 3em 1em;
     line-height: 1.5em;
     text-align: center;
     font-size: 0.9rem;
@@ -234,6 +235,7 @@ html {
 h1, h2 {
     margin: 0.2em;
     font-family: var(--theme-font);
+    color: var(--normal-text);
 }
 
 h3 {
@@ -295,11 +297,12 @@ main {
     }
 
     #site-nav li {
-        margin: 0.3rem 0;
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 540px) {
     header {
         flex-direction: column;
         align-items: center;
