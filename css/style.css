@@ -292,20 +292,30 @@ main {
 ol.bracketed {
     counter-reset: item;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 ol.bracketed li {
     counter-increment: item;
+    position: relative;
+    /* for absolutely-positioned ::before */
+    padding-left: 3em;
+    /* <-- room for “[n]” */
+    margin-bottom: 1em;
+    /* optional spacing between items */
+    line-height: 1.4;
+    /* whatever you like */
 }
 
 ol.bracketed li::before {
     content: "[" counter(item) "]";
-    display: inline-block;
-    /* “box” for the marker */
-    width: 2em;
-    /* reserve room for “[n]” */
-    margin-right: 1em;
-    /* ← increase this to taste */
+    position: absolute;
+    left: 0;
+    width: 3em;
+    /* same as the li’s padding-left */
+    text-align: right;
+    /* right-align the number in that 3em “gutter” */
 }
 
 /* media query */
