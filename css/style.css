@@ -145,7 +145,7 @@
     font-size: 0.8em;
     text-decoration: none;
     font-weight: normal;
-    color: inherit;  
+    color: inherit;
 }
 
 .sns-icon{
@@ -249,7 +249,7 @@ header {
     width: 100%;
     z-index: 100;
     font-family: var(--theme-font);
-    margin-top: 0em; 
+    margin-top: 0em;
     padding: 2em 0em 0em 0em;
     color: var(--theme-dark);
     background-color: var(--theme-bg);
@@ -287,6 +287,25 @@ main {
         -0.1em -0.1em 0.2em var(--theme-bg);
     margin: 2em min(4em,5vw);
     flex: 1;
+}
+
+ol.bracketed {
+    counter-reset: item;
+    list-style: none;
+    padding-left: 0;
+}
+
+ol.bracketed li {
+    counter-increment: item;
+    /* indent the text after the marker */
+    margin-left: 1.5em;
+    position: relative;
+}
+
+ol.bracketed li::before {
+    content: "[" counter(item) "]";
+    position: absolute;
+    left: 0;
 }
 
 /* media query */
