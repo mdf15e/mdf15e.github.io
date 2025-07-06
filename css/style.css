@@ -289,25 +289,23 @@ main {
     flex: 1;
 }
 
-ol.bracketed {
-    counter-reset: item;
+ol.modern {
     list-style: none;
-    /* push all items right so there's room for “[n]” */
-    padding-left: 2.5em;
+    counter-reset: list-item;
+    padding-left: 0;
 }
 
-ol.bracketed li {
-    counter-increment: item;
+ol.modern li {
+    counter-increment: list-item;
+    padding-left: 1.5em;
+    /* room for the marker */
 }
 
-ol.bracketed li::before {
-    content: "[" counter(item) "]";
-    /* it will sit in the “gutter” created by the padding */
-    position: absolute;
-    margin-left: -2.5em;
-    width: 2.5em;
-    text-align: right;
-}
+ol.modern li::marker {
+    content: "[" counter(list-item) "] ";
+    /* add extra spacing after the bracket */
+    margin-right: 0.5em;
+    /* or increase to 1em */ }
 
 /* media query */
 @media (max-width: 530px) {
