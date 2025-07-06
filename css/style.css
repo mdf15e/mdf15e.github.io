@@ -293,29 +293,27 @@ ol.bracketed {
     counter-reset: item;
     list-style: none;
     margin: 0;
+    /* make sure the browser’s default indent is gone */
     padding: 0;
 }
 
 ol.bracketed li {
     counter-increment: item;
     position: relative;
-    /* for absolutely-positioned ::before */
-    padding-left: 3em;
-    /* <-- room for “[n]” */
+    /* shrink this if the list is too far right */
+    padding-left: 2.5em;
     margin-bottom: 1em;
-    /* optional spacing between items */
-    line-height: 1.4;
-    /* whatever you like */
 }
 
 ol.bracketed li::before {
     content: "[" counter(item) "]";
     position: absolute;
     left: 0;
-    width: 3em;
-    /* same as the li’s padding-left */
+    /* widen this if “[1]” and the text are too close */
+    width: 2.5em;
     text-align: right;
-    /* right-align the number in that 3em “gutter” */
+    /* add a little extra breathing room after the bracket */
+    margin-right: 0.5em;
 }
 
 /* media query */
