@@ -292,20 +292,21 @@ main {
 ol.bracketed {
     counter-reset: item;
     list-style: none;
-    padding-left: 0;
+    /* push all items right so there's room for “[n]” */
+    padding-left: 2.5em;
 }
 
 ol.bracketed li {
     counter-increment: item;
-    /* indent the text after the marker */
-    margin-left: 1.5em;
-    position: relative;
 }
 
 ol.bracketed li::before {
     content: "[" counter(item) "]";
+    /* it will sit in the “gutter” created by the padding */
     position: absolute;
-    left: 0;
+    margin-left: -2.5em;
+    width: 2.5em;
+    text-align: right;
 }
 
 /* media query */
