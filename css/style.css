@@ -301,7 +301,7 @@ ol.bracketed li {
     counter-increment: item;
     position: relative;
     /* shrink this if the list is too far right */
-    padding-left: 2.5em;
+    padding-left: 1.8em;
     margin-bottom: 1em;
 }
 
@@ -310,7 +310,7 @@ ol.bracketed li::before {
     position: absolute;
     left: 0;
     /* widen this if “[1]” and the text are too close */
-    width: 2.5em;
+    width: 1.5em;
     text-align: right;
     /* add a little extra breathing room after the bracket */
     margin-right: 0.5em;
