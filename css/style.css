@@ -137,8 +137,14 @@
     -webkit-text-stroke: 0.05em var(--theme-dark);
 }
 
-.margin-left{
+.margin-left {
     margin-left: 1.5em;
+}
+
+.orcid-icon {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
 }
 
 .plain-text {
