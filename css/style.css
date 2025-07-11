@@ -148,14 +148,11 @@
     color: inherit;
 }
 
-.profile {
+.profile dt {
+    /*font-weight: bold;
+    text-decoration: underline;*/
     min-width: 12ex;
     float: left;
-}
-
-.profile dt {
-    font-weight: bold;
-    text-decoration: underline;
 }
 
 .sns-icon{
