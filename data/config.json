@@ -119,6 +119,12 @@
             "name": "INSPIRE HEP",
             "url": "https://inspirehep.net/authors/2779962",
             "icon": "/images/icons/inspire-hep-logo.png"
+        },
+        "orcid": {
+            "name": "ORCID",
+            "url" : "https: //orcid.org/0009-0005-9026-6762",
+            "icon": "/images/icon/orcid-logo.svg",
+            "id": "0009-0005-9026-6762"
         }
     }
 }
