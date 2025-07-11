@@ -123,7 +123,7 @@
         "orcid": {
             "name": "ORCID",
             "url" : "https://orcid.org/0009-0005-9026-6762",
-            "icon": "/images/icon/orcid-logo.svg",
+            "icon": "/images/icons/orcid-logo.svg",
             "id": "0009-0005-9026-6762"
         }
     }
