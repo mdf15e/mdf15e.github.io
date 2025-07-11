@@ -153,6 +153,10 @@
     float: left;
 }
 
+.profile dt {
+    font-weight: bold;
+}
+
 .sns-icon{
     width: 1.5em;
     height: 1.5em;
