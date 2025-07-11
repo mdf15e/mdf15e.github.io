@@ -155,6 +155,7 @@
 
 .profile dt {
     font-weight: bold;
+    text-decoration: underline;
 }
 
 .sns-icon{
