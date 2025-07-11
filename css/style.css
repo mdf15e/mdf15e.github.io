@@ -122,11 +122,6 @@
     margin-top: 0.1em;
 }
 
-.dark-marker {
-    background-color: rgba(80, 80, 80, 0.25);
-    color: #dddddd;
-}
-
 .first-letter {
     font-size: 1.5em;
     vertical-align: baseline;
@@ -151,6 +146,11 @@
     text-decoration: none;
     font-weight: normal;
     color: inherit;
+}
+
+.profile {
+    min-width: 12ex;
+    float: left;
 }
 
 .sns-icon{
