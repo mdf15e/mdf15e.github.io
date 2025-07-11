@@ -122,6 +122,11 @@
     margin-top: 0.1em;
 }
 
+.dark-marker {
+    background-color: rgba(128, 128, 128, 0.25);
+    color: #cccccc;
+}
+
 .first-letter {
     font-size: 1.5em;
     vertical-align: baseline;
