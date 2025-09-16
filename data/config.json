@@ -1,0 +1,130 @@
+{
+    "colors": {
+        "theme": "blue",
+        "colorBook": {
+            "custom": {
+            },
+            "blue": {
+                "themeDarkColor": "rgb(14, 40, 143)",
+                "themeLightColor": "rgb(237, 247, 255)",
+                "themeTransparentDarkColor": "rgba(14, 40, 143, 0.8)",
+                "themeTransparentLightColor": "rgba(237, 247, 255, 0.9)",
+                "themeTextColor": "rgb(4, 13, 48)",
+                "themeBackgroundColor": "rgb(255,255,255)",
+                "themeTransparentBackground": "rgba(255,255,255,0.8)",
+                "accentColor": "#e74c3c",
+                "iconImageDark": "/images/icons/ST-icon-blue.png",
+                "iconImageLight": "/images/icons/ST-icon-white.png"
+            },
+            "green": {
+                "themeDarkColor": "rgb(10, 125, 79)",
+                "themeLightColor": "rgb(230, 250, 242)",
+                "themeTransparentDarkColor": "rgba(10, 125, 79, 0.8)",
+                "themeTransparentLightColor": "rgba(230, 250, 242, 0.9)",
+                "themeTextColor": "rgb(2, 40, 26)",
+                "themeBackgroundColor": "rgb(255,255,255)",
+                "themeTransparentBackground": "rgba(255,255,255,0.8)",
+                "accentColor": "#e74c3c",
+                "iconImageDark": "/images/icons/icon-blue.png",
+                "iconImageLight": "/images/icons/icon-white.png"
+            },
+            "red": {
+                "themeDarkColor": "rgb(153, 27, 27)",
+                "themeLightColor": "rgb(255, 235, 235)",
+                "themeTransparentDarkColor": "rgba(153, 27, 27, 0.8)",
+                "themeTransparentLightColor": "rgba(255, 235, 235, 0.9)",
+                "themeTextColor": "rgb(67, 0, 0)",
+                "themeBackgroundColor": "rgb(255,255,255)",
+                "themeTransparentBackground": "rgba(255,255,255,0.8)",
+                "accentColor": "#2980b9",
+                "iconImageDark": "/images/icons/icon-red.png",
+                "iconImageLight": "/images/icons/icon-white.png"
+            },
+            "orange": {
+                "themeDarkColor": "rgb(202, 103, 0)",
+                "themeLightColor": "rgb(255, 248, 237)",
+                "themeTransparentDarkColor": "rgba(202, 103, 0, 0.8)",
+                "themeTransparentLightColor": "rgba(255, 248, 237, 0.9)",
+                "themeTextColor": "rgb(80, 40, 0)",
+                "themeBackgroundColor": "rgb(255,255,255)",
+                "themeTransparentBackground": "rgba(255,255,255,0.8)",
+                "accentColor": "#3498db",
+                "iconImageDark": "/images/icons/icon-orange.png",
+                "iconImageLight": "/images/icons/icon-white.png"
+            },
+            "pink": {
+                "themeDarkColor": "rgb(191, 64, 128)",
+                "themeLightColor": "rgb(255, 240, 250)",
+                "themeTransparentDarkColor": "rgba(191, 64, 128, 0.8)",
+                "themeTransparentLightColor": "rgba(255, 240, 250, 0.9)",
+                "themeTextColor": "rgb(85, 0, 51)",
+                "themeBackgroundColor": "rgb(255,255,255)",
+                "themeTransparentBackground": "rgba(255,255,255,0.8)",
+                "accentColor": "#2ecc71",
+                "iconImageDark": "/images/icons/icon-pink.png",
+                "iconImageLight": "/images/icons/icon-white.png"
+            }
+        }
+    },
+    "contentTypes": {
+        "note": {"ja":"Notes","en":"Notes"},
+        "update": {"ja":"Updates","en":"Updates"}
+    },
+    "htmlPartials": {
+        "partialName": {
+            "url": "path/to/partial",
+            "loadToAllPages": "bool whether load to all pages or not",
+            "target": "target element. use css selector",
+            "position": "location to insert the element in relation to the target. use options of insertAdjacentElement",
+            "tags": ["tags you write in pages you want to add this partial"]
+        }
+    },
+    "contentSummary": {
+        "introLength": {"ja":150,"en":200},
+        "itemsPerPage": 10
+    },
+    "langs": {
+        "ja":"日本語",
+        "en":"English"
+    },
+    "mathjax": {
+        "tex": {
+            "inlineMath": [["\\(", "\\)"]],
+            "displayMath": [["\\[","\\]"]],
+            "processEscapes": true,
+            "tags": "ams"
+        }
+    },
+    "scripts": {
+        "scriptName": {
+            "url": "path/to/script",
+            "defer": "bool whether add defer or not",
+            "loadToAllPages": "bool whether load to all pages or not",
+            "tags": ["tags to write in pages you want to add this script"]
+        }
+    },
+    "siteIcon": "/images/icons/ST-icon-blue.png",
+    "sns": {
+        "arxiv": {
+            "name": "arXiv",
+            "url": "https://arxiv.org/search/hep-th?query=Takahashi%2C+Shunta&searchtype=author&abstracts=hide&order=-announced_date_first&size=200",
+            "icon": "/images/icons/arxiv-logo-white-red.png"
+        },
+        "google-scholar": {
+            "name": "Google Scholar",
+            "url": "https://scholar.google.com/citations?user=5IsHw8EAAAAJ",
+            "icon": "/images/icons/google-scholar-logo.png"
+        },
+        "inspire-hep": {
+            "name": "INSPIRE HEP",
+            "url": "https://inspirehep.net/authors/2779962",
+            "icon": "/images/icons/inspire-hep-logo.png"
+        },
+        "orcid": {
+            "name": "ORCID",
+            "url" : "https://orcid.org/0009-0005-9026-6762",
+            "icon": "/images/icons/orcid-logo.svg",
+            "id": "0009-0005-9026-6762"
+        }
+    }
+}

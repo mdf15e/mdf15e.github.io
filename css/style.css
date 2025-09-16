@@ -1,0 +1,364 @@
+/*
+目次
+    :root
+    variable setting
+    *
+    id
+    class
+    tag
+    media query
+*/
+
+/* variable setting */
+:root {
+    /* jsで上書きされる */
+    --theme-dark: #000000;
+    --theme-light: #ffffff;
+    --theme-tp-dark: rgba(0, 0, 0, 0.8);
+    --theme-tp-light: rgba(255, 255, 255, 0.8);
+    --theme-text: #000000;
+    --theme-bg: #ffffff;
+    --theme-tp-bg: rgba(255, 255, 255, 0.4);
+    --accent-color: #ff0000;
+    --icon-image-dark: url('/images/icons/ST-icon-blue.png');
+    --icon-image-light: url('/images/icons/ST-icon-white.png');
+    /* jsで上書きされない */
+    --theme-font: Courier, monospace, serif;
+    --normal-font: Arial, sans-serif, serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* id */
+#header-top {
+    position: relative;
+    text-align: center;
+}
+
+#header-top h1{
+    margin: 0em;
+}
+
+#bg-image {
+    position: fixed;
+    top: 0em;
+    left: 0em;
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--icon-image-dark);
+    background-size: min(45vw, 40vh);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -200;
+}
+
+#language-switcher {
+    position: absolute;
+    right: 1em;
+    bottom: 0.8em;
+}
+
+#site-nav {
+    padding: 0.2em;
+    margin: 0em;
+    background-color: var(--theme-dark);
+    color: var(--theme-bg);
+}
+
+#site-nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0em;
+    padding: 0em;
+}
+
+#site-nav ul li{
+    margin: 0em min(1vw, 1em);
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#pagination .active{
+    background-color: var(--theme-tp-dark);
+    color: var(--theme-bg);
+}
+
+#pagination .virtual-button{
+    border: none;
+    background-color: transparent;
+    vertical-align: auto;
+}
+
+/* class */
+.accent {
+    color: var(--accent-color);
+}
+
+.box {
+    background-color: var(--theme-tp-light);
+    color: var(--theme-text);
+    margin: 1em auto;
+    padding: 0.8em 1.5em 0.8em 1.5em;
+    box-shadow: 0.1em 0.1em 0.2em var(--theme-tp-dark);
+    border-radius: 0.1em;
+    text-shadow: none;
+}
+
+.box .box-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.box hr {
+    margin-top: 0.1em;
+}
+
+.first-letter {
+    font-size: 1.5em;
+    vertical-align: baseline;
+    display: inline;
+    color: var(--theme-dark);
+}
+
+.initials {
+    font-size: 2em;
+    vertical-align: baseline;
+    display: inline;
+    color: transparent;
+    -webkit-text-stroke: 0.05em var(--theme-dark);
+}
+
+.margin-left {
+    margin-left: 1.5em;
+}
+
+.orcid-icon {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
+}
+
+.plain-text {
+    font-size: 0.8em;
+    text-decoration: none;
+    font-weight: normal;
+    color: inherit;
+}
+
+.profile dt {
+    font-weight: bold;
+    min-width: 12ex;
+    float: left;
+}
+
+.sns-icon{
+    width: 1.5em;
+    height: 1.5em;
+    margin: 1em 0.2em;
+    vertical-align: middle;
+}
+
+.system-message-text {
+    text-align: center;
+}
+
+.with-dark-icon {
+    display: inline-flex;
+    align-items: center;
+    padding-left: 1.0em;
+    background-image: var(--icon-image-dark);
+    background-repeat: no-repeat;
+    background-position: 0.1em center;
+    background-size: 0.8em 0.8em;
+}
+
+.with-light-icon {
+    display: inline-flex;
+    align-items: center;
+    padding-left: 1.0em;
+    background-image: var(--icon-image-light);
+    background-repeat: no-repeat;
+    background-position: 0.1em center;
+    background-size: 0.8em 0.8em;
+}
+
+/* tag */
+a {
+    color: var(--theme-dark);
+}
+
+button {
+    font-family: var(--theme-font);
+    background-color: var(--theme-bg);
+    color: var(--theme-dark);
+    min-width: 5.5em;
+    height: 2em;
+    margin: 0 0.2em;
+    border: 2px solid var(--theme-dark);
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+button:hover{
+    background-color: var(--theme-dark);
+    color: var(--theme-bg);
+}
+
+body {
+    margin: 0em;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: var(--theme-dark);
+    padding: 3em 1em;
+    line-height: 1.5em;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--theme-bg);
+    font-family: var(--theme-font);
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
+html {
+    font-size: 16px;
+}
+
+h1, h2 {
+    margin: 0.2em;
+    font-family: var(--theme-font);
+    color: var(--normal-text);
+}
+
+h3 {
+    margin: 0em;
+    color: var(--theme-text);
+}
+
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    font-family: var(--theme-font);
+    margin-top: 0em;
+    padding: 2em 0em 0em 0em;
+    color: var(--theme-dark);
+    background-color: var(--theme-bg);
+}
+
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header hr {
+    border: none;
+    height: 2px;
+    background-color: var(--theme-dark);
+}
+
+hr {
+    border: none;
+    margin: 0.5em 0em;
+    height: 1px;
+    background-color: var(--theme-text);
+}
+
+main {
+    color: var(--normal-text);
+    text-shadow:
+        0em 0em 0.4em var(--theme-bg),
+        0.1em 0em 0.2em var(--theme-bg),
+        -0.1em 0em 0.2em var(--theme-bg),
+        0em 0.1em 0.2em var(--theme-bg),
+        0em -0.1em 0.2em var(--theme-bg),
+        0.1em 0.1em 0.2em var(--theme-bg),
+        0.1em -0.1em 0.2em var(--theme-bg),
+        -0.1em 0.1em 0.2em var(--theme-bg),
+        -0.1em -0.1em 0.2em var(--theme-bg);
+    margin: 2em min(4em,5vw);
+    flex: 1;
+}
+
+ol.bracketed {
+    counter-reset: item;
+    list-style: none;
+    margin: 0;
+    /* make sure the browser’s default indent is gone */
+    padding: 0;
+}
+
+ol.bracketed li {
+    counter-increment: item;
+    position: relative;
+    /* shrink this if the list is too far right */
+    padding-left: 1.8em;
+    margin-bottom: 1em;
+}
+
+ol.bracketed li::before {
+    content: "[" counter(item) "]";
+    position: absolute;
+    left: 0;
+    /* widen this if “[1]” and the text are too close */
+    width: 1.5em;
+    text-align: right;
+    /* add a little extra breathing room after the bracket */
+    margin-right: 0.5em;
+}
+
+/* media query */
+@media (max-width: 530px) {
+    #site-nav ul{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #site-nav li {
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+    }
+}
+
+@media (max-width: 540px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    header h1 {
+        width: 100%;
+        margin-bottom: 0rem;
+    }
+
+    #language-switcher {
+            position: static;
+        margin-bottom: 0.7rem;
+    }
+
+    #pagination button{
+        min-width: 10vw;
+    }
+}
