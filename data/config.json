@@ -129,7 +129,8 @@
         "github": {
             "name": "Github",
             "url": "https://github.com/mdf15e",
-            "icon": "images/icons/GitHub_Invertocat_Black.svg"
+            "icon": "images/icons/GitHub_Invertocat_Black.svg",
+            "id": "mdf15e"
         }
     }
 }
