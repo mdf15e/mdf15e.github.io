@@ -125,6 +125,11 @@
             "url" : "https://orcid.org/0009-0005-9026-6762",
             "icon": "/images/icons/orcid-logo.svg",
             "id": "0009-0005-9026-6762"
+        },
+        "github": {
+            "name": "Github",
+            "url": "https://github.com/mdf15e",
+            "icon": "images/icons/GitHub_Invertocat_Black.svg"
         }
     }
 }
