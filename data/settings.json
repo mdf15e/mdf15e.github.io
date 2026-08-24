@@ -1,4 +1,5 @@
 {
+    "startYear": 2025,
     "htmlPartials": {
         "footer": {
                 "url": "/includes/footer.html",

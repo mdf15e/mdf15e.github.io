@@ -153,6 +153,7 @@ export async function interpolate(template, env) {
     const unknown = '???';
 
     const specialKeys = {
+        currentYear: () => new Date().getFullYear(),
         lang: () => lang ?? unknown,
         langLabel: () => config.langs?.[lang] ?? unknown,
         altlang: () => lang === 'ja' ? 'en' : 'ja',
