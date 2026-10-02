@@ -154,10 +154,56 @@
     color: inherit;
 }
 
+.profile {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    align-items: baseline;
+    column-gap: 1em;
+    row-gap: 1em;
+    padding-bottom: 1em;
+}
+
+.profile > br {
+    display: none;
+}
+
 .profile dt {
-    font-weight: bold;
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: normal;
+    color: color-mix(in srgb, var(--theme-dark) 55%, var(--theme-text));
     min-width: 12ex;
-    float: left;
+}
+
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+}
+
+.profile-link {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 36px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.profile-link-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    object-fit: contain;
+}
+
+.profile-link-id {
+    font-size: 0.9em;
+    font-weight: 400;
+    color: color-mix(in srgb, var(--theme-text) 65%, var(--theme-bg));
 }
 
 .sns-icon{
@@ -194,6 +240,16 @@
 /* tag */
 a {
     color: var(--theme-dark);
+    text-decoration: none;
+}
+
+.paper-details a {
+    text-decoration: underline;
+}
+
+a:hover,
+a:focus-visible {
+    font-weight: 700;
 }
 
 button {
@@ -233,10 +289,6 @@ footer {
 
 footer a {
     color: inherit;
-    text-decoration: none;
-}
-
-footer a:hover {
     text-decoration: none;
 }
 
@@ -301,6 +353,197 @@ main {
     flex: 1;
 }
 
+.paper-title,
+.talk-title {
+    font-style: italic;
+}
+
+.paper-authors,
+.paper-details,
+.talk-authors,
+.talk-details {
+    font-size: 0.9em;
+    margin-top: 0.25em;
+}
+
+.paper-authors,
+.talk-authors {
+    font-size: 0.84em;
+    color: color-mix(in srgb, var(--theme-text) 55%, var(--theme-bg));
+}
+
+.paper-authors u,
+.talk-authors u {
+    font-weight: 700;
+}
+
+.talk-invited {
+    font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    font-weight: 700;
+}
+
+.paper-category {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85em;
+    font-weight: 700;
+}
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0;
+}
+
+.note-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 0.5rem 1.5rem;
+    padding: 0.85rem 0;
+}
+
+.note-item + .note-item,
+ol.bracketed[reversed] > li + li,
+.affiliation + .affiliation {
+    border-top: 1px solid color-mix(in srgb, var(--theme-dark) 12%, transparent);
+}
+
+.note-title {
+    line-height: 1.5;
+}
+
+.note-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35em 1em;
+    margin-top: 0.25rem;
+    font-size: 0.78em;
+    color: color-mix(in srgb, var(--theme-text) 65%, var(--theme-bg));
+}
+
+.note-resources {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.note-resource {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 0.25em 0.75em;
+    border: 1px solid color-mix(in srgb, var(--theme-dark) 22%, transparent);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.note-resource[href$=".pdf"] {
+    background-color: color-mix(in srgb, var(--theme-dark) 6%, transparent);
+}
+
+@media (max-width: 600px) {
+    .note-item {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 0.25rem;
+    }
+}
+
+.publication-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid color-mix(in srgb, var(--theme-dark) 16%, transparent);
+    padding-top: 0.65rem;
+    margin-top: 1.25rem;
+}
+
+.publication-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85em;
+    min-height: 44px;
+    padding: 0.35em 0.25em;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.015em;
+}
+
+.publication-link-arrow {
+    display: inline-block;
+    font-size: 1.3em;
+    transition: transform 160ms ease;
+}
+
+.publication-all-link:hover .publication-link-arrow,
+.publication-all-link:focus-visible .publication-link-arrow {
+    transform: translateX(3px);
+}
+
+.publication-all-link:focus-visible {
+    outline: 2px solid var(--theme-dark);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .publication-link-arrow {
+        transition: none;
+    }
+
+    .publication-all-link:hover .publication-link-arrow,
+    .publication-all-link:focus-visible .publication-link-arrow {
+        transform: none;
+    }
+}
+
+.research-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0;
+}
+
+.research-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 32px;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--theme-dark) 20%, transparent);
+    border-radius: 6px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.research-link-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    object-fit: contain;
+}
+
+.research-link-arrow {
+    margin-left: 0.2rem;
+    font-size: 0.9em;
+    opacity: 0.65;
+}
+
+.research-link:hover,
+.research-link:focus-visible {
+    background-color: color-mix(in srgb, var(--theme-dark) 6%, transparent);
+    border-color: color-mix(in srgb, var(--theme-dark) 45%, transparent);
+}
+
+.author-order-note {
+    margin-bottom: 1rem;
+}
+
 ol.bracketed {
     counter-reset: item;
     list-style: none;
@@ -326,6 +569,55 @@ ol.bracketed li::before {
     text-align: right;
     /* add a little extra breathing room after the bracket */
     margin-right: 0.5em;
+}
+
+ol.bracketed[reversed] > li {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    margin-bottom: 0;
+}
+
+ol.bracketed[reversed] > li::before {
+    content: "[" counter(list-item) "]";
+}
+
+ol.bracketed[reversed] > li[value]::before {
+    content: "[" attr(value) "]";
+}
+
+.affiliation {
+    padding: 0.85rem 0;
+}
+
+.affiliation-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    column-gap: 1.5em;
+}
+
+.affiliation-period {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.affiliation-roles {
+    color: color-mix(in srgb, black 70%, white);
+    margin-top: 0.25em;
+    padding-left: 1.5em;
+    font-size: 0.84em;
+}
+
+@media (max-width: 600px) {
+    .affiliation-header {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 0.25em;
+    }
+
+    .affiliation-period {
+        text-align: left;
+        white-space: normal;
+    }
 }
 
 /* media query */

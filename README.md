@@ -391,6 +391,20 @@ diaryを作成してみましょう。
 
 ## 更新の仕方
 
+### 論文一覧の更新
+
+論文の編集元は `includes/publications.html` です。日本語・英語のホームと全一覧は、この共通ファイルを読み込みます。
+
+- 新しい論文は最初の `<ol>` の先頭に `<li>` を追加します。一覧はファイルに書いた順（新しい順）で表示します。
+- 各論文の `paper-title`、`paper-authors`、`paper-details` を編集してください。数式やリンクは従来と同じHTMLで書けます。
+- ホームは先頭4件、`papers-talks.html` は全件を表示します。
+- 番号は「理論物理以外の論文」も含めた全件数から自動計算します。`start` や `value` を手入力する必要はありません。
+- 言語別の表示が必要な箇所には `data-publication-lang="ja"` または `data-publication-lang="en"` を付けます。
+- ホームの表示件数は各 `index.html` の `data-publications-limit="4"` で変更できます。
+- 読み込み処理は `js/publications.js` です。ローカル確認にはHTTPサーバーを使用してください。
+
+
+
 ### 記事の種類
 
 * `page` と `content` の2種類

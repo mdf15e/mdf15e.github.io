@@ -31,26 +31,19 @@
                     <a href="https://perimeterinstitute.ca/" target="_blank">Perimeter Institute for Theoretical Physics</a> (カナダ オンタリオ州)
                 </dd>
                 <br>
-                <dt>指導教員</dt>
-                <dd>吉田紅 教授</dd>
-                <br>
-                <dt>ORCID</dt>
-                <dd>
-                    <a href="{{sns.orcid.url}}" target="_blank" rel="noopener noreferrer">
-                        <img src="{{sns.orcid.icon}}" alt="{{sns.orcid.name}}" class="orcid-icon">
-                        {{sns.orcid.id}}
-                    </a>
-                </dd>
-                <br>
-                <dt>Github</dt>
-                <dd>
-                    <a href="{{sns.github.url}}" target="_blank" rel="noopener noreferrer">
-                        <img src="{{sns.github.icon}}" alt="{{sns.github.name}}" class="orcid-icon">
-                        {{sns.github.id}}
-                    </a>
-                </dd>
-                <br>
             </dl>
+            <div class="profile-links">
+                <a class="profile-link" href="{{sns.orcid.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.orcid.icon}}" alt="" class="profile-link-icon">
+                    <span>ORCID</span>
+                    <span class="profile-link-id">{{sns.orcid.id}}</span>
+                </a>
+                <a class="profile-link" href="{{sns.github.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.github.icon}}" alt="" class="profile-link-icon">
+                    <span>GitHub</span>
+                    <span class="profile-link-id">{{sns.github.id}}</span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -73,126 +66,117 @@
     </div>
 
     <div class="box">
-        <h3 class="box-title"><a href="notes.html">ノート</a></h3>
-        <hr class="ruler">
+        <h3 class="box-title"><a href="papers-talks.html#papers">論文</a></h3>
+        <hr>
         <div class="box-text">
-            <div class="margin-left">
-                <ul>
-                    <li>線形代数におけるテンソル積: [<a href="../notes/tensor_main.pdf" target="_blank">pdf</a>] [<a
-                            href="https://note.com/vielb/n/n49ea8944e2e0?sub_rt=share_pw" target="_blank">日本語のweb解説</a>]</li>
-                    <li>gauge color code (執筆途中): [<a href="../notes/gauge_color_code_main.pdf" target="_blank">pdf</a>]
-                    </li>
-                    <li>subsystem code と Floquet code (執筆途中): [<a href="../notes/subsystem_floquet_main.pdf" target="_blank">pdf</a>]
-                    </li>
-                    <li>\((2+1)\)次元 symTFT で前提となる数学 (執筆途中, <a href="https://t2sp.github.io/" target="_blank">Toshinori Takama</a>との共同執筆): [<a href="../notes/symtft_main.pdf" target="_blank">pdf</a>]</li>
-                    <li>lattice surgeryとmagic state injection (執筆途中): [<a href="../notes/lattice_surgery_magic_state_main.pdf" target="_blank">pdf</a>]</li>
-                    <li>fermionic toric code (執筆途中): [<a href="../notes/fermionic_toric_code_main.pdf" target="_blank">pdf</a>]</li>
-                </ul>
+            <div class="research-links">
+                <a class="research-link" href="{{sns.arxiv.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.arxiv.icon}}" alt="" class="research-link-icon">
+                    <span>{{sns.arxiv.name}}</span>
+                    <span class="research-link-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="research-link" href="{{sns.google-scholar.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.google-scholar.icon}}" alt="" class="research-link-icon">
+                    <span>{{sns.google-scholar.name}}</span>
+                    <span class="research-link-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="research-link" href="{{sns.inspire-hep.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.inspire-hep.icon}}" alt="" class="research-link-icon">
+                    <span>{{sns.inspire-hep.name}}</span>
+                    <span class="research-link-arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
+            <div class="author-order-note">
+            hep-thの論文では、著者名は慣例でアルファベット順
+            </div>
+            <div data-publications data-publications-limit="4"><p role="status">論文一覧を読み込んでいます…</p></div>
+            <div class="publication-footer">
+                <a class="publication-all-link" href="papers-talks.html#papers">
+                    <span>論文一覧</span>
+                    <span class="publication-link-arrow" aria-hidden="true">→</span>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="box">
-        <h3 class="box-title"><a href="papers-talks.html">論文</a></h3>
+        <h3 class="box-title"><a href="papers-talks.html#talks">講演</a></h3>
         <hr>
         <div class="box-text">
-            <a href="{{sns.arxiv.url}}" target="_blank" rel="noopener noreferrer">
-                <img src="{{sns.arxiv.icon}}" alt="{{sns.arxiv.name}}" class="sns-icon">
-                {{sns.arxiv.name}}
-            </a>
-            <a href="{{sns.google-scholar.url}}" target="_blank" rel="noopener noreferrer">
-                <img src="{{sns.google-scholar.icon}}" alt="{{sns.google-scholar.name}}" class="sns-icon">
-                {{sns.google-scholar.name}}
-            </a>
-            <a href="{{sns.inspire-hep.url}}" target="_blank" rel="noopener noreferrer">
-                <img src="{{sns.inspire-hep.icon}}" alt="{{sns.inspire-hep.name}}" class="sns-icon">
-                {{sns.inspire-hep.name}}
-            </a>
-            <br>
-            <ol class="bracketed">
-                <li>
-                    P.-X. Hao, K. Shinmyo, Y.-k. Suzuki, <u>S. Takahashi</u>, <br>
-                    <em>"More on Bulk Local State Reconstruction in Carrollian Holography,"</em> <br>
-                    [<a href="https://arxiv.org/abs/2603.11993" target="_blank">arXiv:2603.11993</a>]
+            <!-- 講演情報を記述 -->
+            <ol class="bracketed" reversed start="9">
+                <li value="9">
+                    <div class="talk-title">平坦ホログラフィーにおける局所励起状態の構成と AdS3/CFT2, dS3/CFT2 からの帰結</div>
+                    <div class="talk-authors">P.-X. Hao, 鈴木優樹, 新名宏太朗, 〇<u>高橋駿太</u>, 高柳匡</div>
+                    <div class="talk-details">Osaka University, 2025/07/25 【<span class="talk-invited">招待講演</span>, 英語】</div>
                 </li>
-                <li>
-                    P.-X. Hao and <u>S. Takahashi</u>, <br>
-                    <em>"Conformal Blocks in 2d Carrollian/Galilean CFTs and Excited State Entanglement Entropy"</em> <br>
-                    <a href="https://link.aps.org/doi/10.1103/y1bj-4y4h" target="_blank">Phys. Rev. D <b>113</b>, 106014 (2026)</a>, [<a href="https://arxiv.org/abs/2510.25688" target="_blank">arXiv:2510.25688</a>]
+                <li value="6">
+                    <div class="talk-title">Quantum Gravity and Continuous Non-invertible Symmetries: Gauging Wormholes by Anyon Condensation</div>
+                    <div class="talk-authors">〇<u>高橋駿太</u></div>
+                    <div class="talk-details">有限群論・駒場セミナー, 東京大学, 2025/05/12 【<span class="talk-invited">招待講演</span>】</div>
                 </li>
-                <li>
-                    P.-X. Hao, K. Shinmyo, Y.-k. Suzuki, <u>S. Takahashi</u> and T. Takayanagi, <br>
-                    <em>"Bulk Reconstruction of Scalar Excitations in Flat\(_3\)/CCFT\(_2\) and the Flat Limit from
-                        (A)dS\(_3\)/CFT\(_2\),"</em> <br>
-                    <a href="https://doi.org/10.1007/JHEP11(2025)054" target="_blank">JHEP <b>11</b> (2025) 054</a>, [<a
-                        href="https://arxiv.org/abs/2505.20084" target="_blank">arXiv:2505.20084</a>]
-                </li>
-                <li>
-                    <u>S. Takahashi</u>, <br>
-                    <em>"Anyon Condensation in Virasoro TQFT: Wormhole Factorization,"</em> <br>
-                    <a href="https://doi.org/10.1007/JHEP06(2025)243" target="_blank">JHEP <b>06</b> (2025) 243</a>, [<a
-                        href="https://arxiv.org/abs/2412.11486" target="_blank">arXiv:2412.11486</a>]
+                <li value="5">
+                    <div class="talk-title">Quantum Gravity and Continuous Non-invertible Symmetries: Gauging Wormholes by Anyon Condensation</div>
+                    <div class="talk-authors">〇<u>S. Takahashi</u></div>
+                    <div class="talk-details">Seminar in the University of Tokyo High Energy Physics Group, The University of Tokyo, 2025/03/10【<span class="talk-invited">招待講演</span>, 英語】</div>
                 </li>
             </ol>
-            理論物理以外の論文
-            <ol class="bracketed">
-                <li>
-                    K. Hiroto, S. Nogi, Y. Kikukawa, <u>S. Takahashi</u>, <i>et al</i>. <br>
-                    <em>"Development of a Wooden CubeSat-LignoSat."</em> <br>
-                    <a href="https://www.jstage.jst.go.jp/article/jesa/2/0/2_218/_article/-char/ja/" target="_blank">Journal of Evolving Space Activities 2 (2024): 218</a>. (<b>宇宙工学</b>)
-                </li>
-            </ol>
+            <div class="publication-footer">
+                <a class="publication-all-link" href="papers-talks.html#talks">
+                    <span>講演一覧</span>
+                    <span class="publication-link-arrow" aria-hidden="true">→</span>
+                </a>
+            </div>
         </div>
     </div>
 
     <div class="box">
-        <h3 class="box-title"><a href="papers-talks.html">講演</a></h3>
-        <hr>
+        <h3 class="box-title"><a href="notes.html">ノート</a></h3>
+        <hr class="ruler">
         <div class="box-text">
-            <!-- 講演情報を記述 -->
-            <ol class="bracketed">
-                <li>
-                    〇<u>高橋俊太</u>, “Symmetry TFT for Average Symmetries and Phase Transitions”, 原子核三者若手夏の学校 2025, 国立オリンピック記念青少年総合センター, 2025/08/08 【ポスター】
+            <ul class="notes-list">
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">線形代数におけるテンソル積</div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/tensor_main.pdf" target="_blank">PDF</a><a class="note-resource" href="https://note.com/vielb/n/n49ea8944e2e0?sub_rt=share_pw" target="_blank">Web解説 ↗</a></div>
                 </li>
-                <li>
-                    〇<u>S. Takahashi</u>, “Anyon Condensation and SymTFT in Quantum Gravitational TQFT”, 弦と場の理論2025, 基礎物理学研究所, 2025/08/01 【ポスター, 英語】 [<a href="https://www2.yukawa.kyoto-u.ac.jp/~qft.web/2025/program.html">pdf</a>]
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">gauge color code</div>
+                        <div class="note-meta"><span class="note-status">執筆中</span></div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/gauge_color_code_main.pdf" target="_blank">PDF</a></div>
                 </li>
-                <li>
-                    P.-X. Hao, 鈴木優樹, 新名宏太朗, 〇<u>高橋駿太</u>, 高柳匡, 「平坦ホログラフィーにおける局所励起状態の構成と AdS3/CFT2,
-                    dS3/CFT2 からの帰結」, Osaka University, 2025/07/25 【招待講演, 英語】
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">subsystem code と Floquet code</div>
+                        <div class="note-meta"><span class="note-status">執筆中</span></div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/subsystem_floquet_main.pdf" target="_blank">PDF</a></div>
                 </li>
-                <li>
-                    P.-X. Hao, 鈴木優樹, 新名宏太朗, 〇<u>高橋駿太</u>, 高柳匡, 「平坦ホログラフィーにおける局所励起状態の構成と AdS3/CFT2, dS3/CFT2からの帰結」, 京都大学素粒子論研究室セミナー,
-                    京都大学, 2025/06/25 【口頭】
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">\((2+1)\)次元 symTFT で前提となる数学</div>
+                        <div class="note-meta"><span class="note-status">執筆中</span><span><a href="https://t2sp.github.io/" target="_blank">Toshinori Takama</a>との共同執筆</span></div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/symtft_main.pdf" target="_blank">PDF</a></div>
                 </li>
-                <li>
-                    〇<u>S. Takahashi</u>, “Anyon Condensation in Quantum Gravitational TQFT”, TSVP Symposium: Aspects of Generalized
-                    Symmetries, Okinawa Institute of Science and Technology, 2025/06/17 【ポスター, 英語】
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">lattice surgeryとmagic state injection</div>
+                        <div class="note-meta"><span class="note-status">執筆中</span></div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/lattice_surgery_magic_state_main.pdf" target="_blank">PDF</a></div>
                 </li>
-                <li>
-                    〇<u>高橋駿太</u>, 「Quantum Gravity and Continuous Non-invertible Symmetries: Gauging Wormholes by Anyon Condensation」,
-                    有限群論・駒場セミナー, 東京大学, 2025/05/12 【招待講演】
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">fermionic toric code</div>
+                        <div class="note-meta"><span class="note-status">執筆中</span></div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/fermionic_toric_code_main.pdf" target="_blank">PDF</a></div>
                 </li>
-                <li>
-                    〇<u>S. Takahashi</u>, “Quantum Gravity and Continuous Non-invertible Symmetries: Gauging Wormholes by Anyon
-                    Condensation”, Seminar in the University of Tokyo High Energy Physics Group, The University of Tokyo,
-                    2025/03/10【招待講演, 英語】
-                </li>
-                <li>
-                    N. Ogawa, 〇<u>S. Takahashi</u>, T. Tsuda, T. Waki, 題目「\(H_3^+\) -WZW モデルによる celestial CFT の構成」,
-                    日本物理学会第79回年次大会（2024年）, 北海道大学, 2024/09/18 【口頭】
-                </li>
-                <li>
-                    〇<u>S. Takahashi</u>, 「3d Quantum Gravity and Virasoro TQFT」, 第 3 回「極限宇宙」若手研究会, グランドパーク小樽, 2024/09/13 【ポスター】
-                </li>
-                <li>
-                    〇<u>S. Takahashi</u>, 「Higher Form Symmetries in M-/F-Theory」, 原子核三者若手夏の学校 2024, 国立オリンピック記念青少年総合センター, 2024/08/23
-                    【口頭】
-                </li>
-                <li>
-                    〇<u>S. Takahashi</u>, 「AdS/CFT 対応」, 原子核三者若手夏の学校 2023, 国立オリンピック記念青少年総合センター, 2023/08/19 【ポスター】
-                </li>
-            </ol>
+            </ul>
         </div>
     </div>
 
@@ -200,33 +184,54 @@
         <h3 class="box-title">経歴</h3>
         <hr>
         <div class="box-text">
-            <p>2026年9月〜</p>
-            <p class="margin-left">Ph.D.</p>
-            <p class="margin-left">Perimeter Institute for Theoretical Physics</p>
-            <br>
+            <div class="affiliation">
+                <div class="affiliation-header">
+                    <p class="affiliation-name">Perimeter Institute for Theoretical Physics</p>
+                    <p class="affiliation-period">2026年 〜</p>
+                </div>
+                <ul class="affiliation-roles">
+                    <li>博士課程（物理学・量子情報）</li>
+                </ul>
+            </div>
 
-            <p>2025年9月〜2026年3月</p>
-            <p class="margin-left">Visiting Student</p>
-            <p class="margin-left">Perimeter Institute for Theoretical Physics</p>
-            <br>
+            <div class="affiliation">
+                <div class="affiliation-header">
+                    <p class="affiliation-name">京都大学大学院 理学研究科 物理学第二教室</p>
+                    <p class="affiliation-period">2025年 〜 2026年</p>
+                </div>
+                <ul class="affiliation-roles">
+                    <li>博士課程（物理学・中途退学）</li>
+                    <li>備考：Perimeter Instituteの博士課程へ移籍</li>
+                </ul>
+            </div>
 
-            <p>2025年4月〜2026年8月</p>
-            <p class="margin-left">博士課程（PhD課程変更のため中途退学）</p>
-            <p class="margin-left">京都大学大学院 理学研究科 物理学第二教室</p>
-            <br>
+            <div class="affiliation">
+                <div class="affiliation-header">
+                    <p class="affiliation-name">京都大学 数理解析研究所</p>
+                    <p class="affiliation-period">2023年 〜 2025年</p>
+                </div>
+                <ul class="affiliation-roles">
+                    <li>修士課程（数学）</li>
+                </ul>
+            </div>
 
-            <p>2023年4月〜2025年3月</p>
-            <p class="margin-left">修士課程</p>
-            <p class="margin-left">京都大学 数理解析研究所</p>
-            <br>
+            <div class="affiliation">
+                <div class="affiliation-header">
+                    <p class="affiliation-name">京都大学 理学部</p>
+                    <p class="affiliation-period">2020年 〜 2023年</p>
+                </div>
+                <ul class="affiliation-roles">
+                    <li>学士課程（物理学・数学・中途退学）</li>
+                    <li>備考：大学院への早期入学制度により、学位取得前に退学</li>
+                </ul>
+            </div>
 
-            <p>2020年4月〜2023年3月</p>
-            <p class="margin-left">学士課程（大学院早期入学のため中途退学）</p>
-            <p class="margin-left">京都大学 理学部</p>
-            <br>
-
-            <p>2017年4月〜2020年3月</p>
-            <p class="margin-left">聖光学院高等学校（横浜）</p>
+            <div class="affiliation">
+                <div class="affiliation-header">
+                    <p class="affiliation-name">聖光学院高等学校</p>
+                    <p class="affiliation-period">2017年 〜 2020年</p>
+                </div>
+            </div>
         </div>
     </div>
 </main>

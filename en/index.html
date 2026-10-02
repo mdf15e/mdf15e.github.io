@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="
-        Home page of Shunta Takahashi, a Ph.D. student in theoretical physics at Perimeter Institute.
+        Home page of Shunta Takahashi, a PhD student in theoretical physics at Perimeter Institute.
     ">
     <meta name="keywords" content="Shunta Takahashi, 髙橋駿太, 高橋駿太, タカハシシュンタ">
     <link rel="icon" href={{siteIcon}}>
@@ -22,34 +22,27 @@
         <hr class="ruler">
         <div class="box-text">
             <dl class="profile">
-                <dt>Position</dt>
-                <dd>Ph.D. Student</dd>
+                <dt>POSITION</dt>
+                <dd>PhD Student</dd>
                 <br>
-                <dt>Affiliation</dt>
+                <dt>AFFILIATION</dt>
                 <dd>
                     <a href="https://perimeterinstitute.ca/" target="_blank">Perimeter Institute for Theoretical Physics</a>
                 </dd>
                 <br>
-                <dt>Advisor</dt>
-                <dd>Prof. Beni Yoshida</dd>
-                <br>
-                <dt>ORCID</dt>
-                <dd>
-                    <a href="{{sns.orcid.url}}" target="_blank" rel="noopener noreferrer">
-                        <img src="{{sns.orcid.icon}}" alt="{{sns.orcid.name}}" class="orcid-icon">
-                        {{sns.orcid.id}}
-                    </a>
-                </dd>
-                <br>
-                <dt>Github</dt>
-                <dd>
-                    <a href="{{sns.github.url}}" target="_blank" rel="noopener noreferrer">
-                        <img src="{{sns.github.icon}}" alt="{{sns.github.name}}" class="orcid-icon">
-                        {{sns.github.id}}
-                    </a>
-                </dd>
-                <br>
             </dl>
+            <div class="profile-links">
+                <a class="profile-link" href="{{sns.orcid.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.orcid.icon}}" alt="" class="profile-link-icon">
+                    <span>ORCID</span>
+                    <span class="profile-link-id">{{sns.orcid.id}}</span>
+                </a>
+                <a class="profile-link" href="{{sns.github.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.github.icon}}" alt="" class="profile-link-icon">
+                    <span>GitHub</span>
+                    <span class="profile-link-id">{{sns.github.id}}</span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -71,73 +64,37 @@
     </div>
 
     <div class="box">
-        <h3 class="box-title"><a href="notes.html">Notes</a></h3>
-        <hr class="ruler">
-        <div class="box-text">
-            <div class="margin-left">
-                <ul>
-                    <li>Tensor product in linear algebra: [<a href="../notes/tensor_main.pdf" target="_blank">pdf</a>] [<a
-                            href="https://note.com/vielb/n/n49ea8944e2e0?sub_rt=share_pw" target="_blank">Japanese web page</a>]</li>
-                    <li>Gauge color code (in progress): [<a href="../notes/gauge_color_code_main.pdf" target="_blank">pdf</a>]</li>
-                    <li>Subsystem code & Floquet code (in progress): [<a href="../notes/subsystem_floquet_main.pdf" target="_blank">pdf</a>]</li>
-                    <li>Mathematics for \((2+1)\)d symTFT (in progress, collaboration with <a href="https://t2sp.github.io/" target="_blank">Toshinori Takama</a>): [<a href="../notes/symtft_main.pdf" target="_blank">pdf</a>]</li>
-                    <li>Lattice surgery & magic state injection (in progress): [<a href="../notes/lattice_surgery_magic_state_main.pdf" target="_blank">pdf</a>]</li>
-                    <li>fermionic toric code (in progress): [<a href="../notes/fermionic_toric_code_main.pdf" target="_blank">pdf</a>]
-                    <li>Measurement-based quantum computation (in progress):
-                    <li>Kitaev chain</li>
-                    <li></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="box">
         <h3 class="box-title"><a href="papers-talks.html#papers">Publications</a></h3>
         <hr class="ruler">
         <div class="box-text">
             <!-- links: INSPIRE HEP, Google Scholar, arXiv -->
-            <a href="{{sns.arxiv.url}}" target="_blank" rel="noopener noreferrer">
-                <img src="{{sns.arxiv.icon}}" alt="{{sns.arxiv.name}}" class="sns-icon">
-                {{sns.arxiv.name}}
-            </a>
-            <a href="{{sns.google-scholar.url}}" target="_blank" rel="noopener noreferrer">
-                <img src="{{sns.google-scholar.icon}}" alt="{{sns.google-scholar.name}}" class="sns-icon">
-                {{sns.google-scholar.name}}
-            </a>
-            <a href="{{sns.inspire-hep.url}}" target="_blank" rel="noopener noreferrer">
-                <img src="{{sns.inspire-hep.icon}}" alt="{{sns.inspire-hep.name}}" class="sns-icon">
-                {{sns.inspire-hep.name}}
-            </a>
-            <ol class="bracketed">
-                <li>
-                    P.-X. Hao, K. Shinmyo, Y.-k. Suzuki, <u>S. Takahashi</u>, <br>
-                    <em>"More on Bulk Local State Reconstruction in Carrollian Holography,"</em> <br>
-                    [<a href="https://arxiv.org/abs/2603.11993" target="_blank">arXiv:2603.11993</a>]
-                </li>
-                <li>
-                    P.-X. Hao and <u>S. Takahashi</u>, <br>
-                    <em>"Conformal Blocks in 2d Carrollian/Galilean CFTs and Excited State Entanglement Entropy"</em> <br>
-                    <a href="https://link.aps.org/doi/10.1103/y1bj-4y4h" target="_blank">Phys. Rev. D <b>113</b>, 106014 (2026)</a>, [<a href="https://arxiv.org/abs/2510.25688" target="_blank">arXiv:2510.25688</a>]
-                </li>
-                <li>
-                    P.-X. Hao, K. Shinmyo, Y.-k. Suzuki, <u>S. Takahashi</u> and T. Takayanagi, <br>
-                    <em>"Bulk Reconstruction of Scalar Excitations in Flat\(_3\)/CCFT\(_2\) and the Flat Limit from (A)dS\(_3\)/CFT\(_2\),"</em> <br>
-                    <a href="https://doi.org/10.1007/JHEP11(2025)054" target="_blank">JHEP <b>11</b> (2025) 054</a>, [<a href="https://arxiv.org/abs/2505.20084" target="_blank">arXiv:2505.20084</a>]
-                </li>
-                <li>
-                    <u>S. Takahashi</u>, <br>
-                    <em>"Anyon Condensation in Virasoro TQFT: Wormhole Factorization,"</em> <br>
-                    <a href="https://doi.org/10.1007/JHEP06(2025)243" target="_blank">JHEP <b>06</b> (2025) 243</a>, [<a href="https://arxiv.org/abs/2412.11486" target="_blank">arXiv:2412.11486</a>]
-                </li>
-            </ol>
-            Outside theoretical physics
-            <ol class="bracketed">
-                <li>
-                    K. Hiroto, S. Nogi, Y. Kikukawa, <u>S. Takahashi</u>, <i>et al</i>. <br>
-                    <em>"Development of a Wooden CubeSat-LignoSat."</em> <br>
-                    <a href="https://www.jstage.jst.go.jp/article/jesa/2/0/2_218/_article/-char/ja/" target="_blank">Journal of Evolving Space Activities 2 (2024): 218</a>. (<b>Aerospace Engineering</b>)
-                </li>
-            </ol>
+            <div class="research-links">
+                <a class="research-link" href="{{sns.arxiv.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.arxiv.icon}}" alt="" class="research-link-icon">
+                    <span>{{sns.arxiv.name}}</span>
+                    <span class="research-link-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="research-link" href="{{sns.google-scholar.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.google-scholar.icon}}" alt="" class="research-link-icon">
+                    <span>{{sns.google-scholar.name}}</span>
+                    <span class="research-link-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="research-link" href="{{sns.inspire-hep.url}}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{sns.inspire-hep.icon}}" alt="" class="research-link-icon">
+                    <span>{{sns.inspire-hep.name}}</span>
+                    <span class="research-link-arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
+            <div class="author-order-note">
+                The name of the authors are customarily listed in alphabetical order in hep-th paper.
+            </div>
+            <div data-publications data-publications-limit="4"><p role="status">Loading publications…</p></div>
+            <div class="publication-footer">
+                <a class="publication-all-link" href="papers-talks.html#papers">
+                    <span>Full list of Publications</span>
+                    <span class="publication-link-arrow" aria-hidden="true">→</span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -145,41 +102,90 @@
         <h3 class="box-title"><a href="papers-talks.html#talks">Talks</a></h3>
         <hr class="ruler">
         <div class="box-text">
-            <ol class="bracketed">
-                <li>
-                    〇<u>S. Takahashi</u>, “Symmetry TFT for Average Symmetries and Phase Transitions”, The 71st YONUPA Summer School, Youth Education National Olympics Memorial Youth Center, Aug. 8, 2025 【poster】
+            <ol class="bracketed" reversed start="8">
+                <li value="8">
+                    <div class="talk-title">平坦ホログラフィーにおける局所励起状態の構成と AdS\(_3\)/CFT\(_2\), dS\(_3\)/CFT\(_2\) からの帰結</div>
+                    <div class="talk-authors">P.-X. Hao, Y.-k. Suzuki, K. Shinmyo, 〇<u>S. Takahashi</u>, T. Takayanagi</div>
+                    <div class="talk-details">Osaka University, Jul. 25, 2025 【<span class="talk-invited">invited talk</span>, English】</div>
                 </li>
-                <li>
-                    〇<u>S. Takahashi</u>, “Anyon Condensation and SymTFT in Quantum Gravitational TQFT”, String and Fields 2025, YITP, Aug. 1, 2025 【poster, English】 [<a href="https://www2.yukawa.kyoto-u.ac.jp/~qft.web/2025/program.html">pdf</a>]
+                <li value="6">
+                    <div class="talk-title">Quantum Gravity and Continuous Non-invertible Symmetries: Gauging Wormholes by Anyon Condensation</div>
+                    <div class="talk-authors">〇<u>S. Takahashi</u></div>
+                    <div class="talk-details">有限群論・駒場セミナー, 東京大学, May. 12, 2025 【<span class="talk-invited">invited talk</span>】</div>
                 </li>
-                <li>
-                    P.-X. Hao, Y.-k. Suzuki, K. Shinmyo, 〇<u>S. Takahashi</u>, T. Takayanagi, 「平坦ホログラフィーにおける局所励起状態の構成と AdS\(_3\)/CFT\(_2\), dS\(_3\)/CFT\(_2\) からの帰結」, Osaka University, Jul. 25, 2025 【invited talk, English】
-                </li>
-                <li>
-                    〇<u>S. Takahashi</u>, “Anyon Condensation in Quantum Gravitational TQFT”, TSVP Symposium: Aspects of Generalized Symmetries, Okinawa Institute of Science and Technology, Jun. 17, 2025 【poster, English】
-                </li>
-                <li>
-                    〇<u>S. Takahashi</u>, 「Quantum Gravity and Continuous Non-invertible Symmetries: Gauging Wormholes by Anyon Condensation」, 有限群論・駒場セミナー, 東京大学, May. 12, 2025 【invited talk】
-                </li>
-                <li>
-                    〇<u>S. Takahashi</u>, “Quantum Gravity and Continuous Non-invertible Symmetries: Gauging Wormholes by Anyon Condensation”, Seminar in the University of Tokyo High Energy Physics Group, The University of Tokyo, Mar. 10, 2025 【invited talk, English】
-                </li>
-                <li>
-                    N. Ogawa, 〇<u>S. Takahashi</u>, T. Tsuda, T. Waki, 題目「\(H_3^+\) -WZW モデルによる celestial CFT の構成」,
-                    日本物理学会第79回年次大会（2024年）, 北海道大学, Sep. 18, 2024 【talk】
-                </li>
-                <li>
-                    〇<u>S. Takahashi</u>, 「3d Quantum Gravity and Virasoro TQFT」, 第 3 回「極限宇宙」若手研究会, グランドパーク小樽, Sep. 13, 2024 【poster,
-                    review】
-                </li>
-                <li>
-                    〇<u>S. Takahashi</u>, 「Higher Form Symmetries in M-/F-Theory」, 原子核三者若手夏の学校 2024, 国立オリンピック記念青少年総合センター, Aug. 13, 2024
-                    【talk】
-                </li>
-                <li>
-                    〇<u>S. Takahashi</u>, 「AdS/CFT 対応」, 原子核三者若手夏の学校 2023, 国立オリンピック記念青少年総合センター, Aug. 19, 2023 【poster, review】
+                <li value="5">
+                    <div class="talk-title">Quantum Gravity and Continuous Non-invertible Symmetries: Gauging Wormholes by Anyon Condensation</div>
+                    <div class="talk-authors">〇<u>S. Takahashi</u></div>
+                    <div class="talk-details">Seminar in the University of Tokyo High Energy Physics Group, The University of Tokyo, Mar. 10, 2025 【<span class="talk-invited">invited talk</span>, English】</div>
                 </li>
             </ol>
+            <div class="publication-footer">
+                <a class="publication-all-link" href="papers-talks.html#talks">
+                    <span>Full list of Talks</span>
+                    <span class="publication-link-arrow" aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <h3 class="box-title"><a href="notes.html">Notes</a></h3>
+        <hr class="ruler">
+        <div class="box-text">
+            <ul class="notes-list">
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">Tensor product in linear algebra</div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/tensor_main.pdf" target="_blank">PDF</a><a class="note-resource" href="https://note.com/vielb/n/n49ea8944e2e0?sub_rt=share_pw" target="_blank">Web ↗</a></div>
+                </li>
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">Gauge color code</div>
+                        <div class="note-meta"><span class="note-status">In progress</span></div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/gauge_color_code_main.pdf" target="_blank">PDF</a></div>
+                </li>
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">Subsystem code & Floquet code</div>
+                        <div class="note-meta"><span class="note-status">In progress</span></div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/subsystem_floquet_main.pdf" target="_blank">PDF</a></div>
+                </li>
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">Mathematics for \((2+1)\)d symTFT</div>
+                        <div class="note-meta"><span class="note-status">In progress</span><span>With <a href="https://t2sp.github.io/" target="_blank">Toshinori Takama</a></span></div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/symtft_main.pdf" target="_blank">PDF</a></div>
+                </li>
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">Lattice surgery & magic state injection</div>
+                        <div class="note-meta"><span class="note-status">In progress</span></div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/lattice_surgery_magic_state_main.pdf" target="_blank">PDF</a></div>
+                </li>
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">fermionic toric code</div>
+                        <div class="note-meta"><span class="note-status">In progress</span></div>
+                    </div>
+                    <div class="note-resources"><a class="note-resource" href="../notes/fermionic_toric_code_main.pdf" target="_blank">PDF</a></div>
+                </li>
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">Measurement-based quantum computation</div>
+                        <div class="note-meta"><span class="note-status">In progress</span></div>
+                    </div>
+                </li>
+                <li class="note-item">
+                    <div class="note-content">
+                        <div class="note-title">Kitaev chain</div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 
@@ -187,33 +193,56 @@
         <h3 class="box-title">Affiliations</h3>
         <hr class="ruler">
         <div class="box-text">
-            <p>Sep. 2026 -</p>
-            <p class="margin-left">Ph.D.</p>
-            <p class="margin-left">Perimeter Institute for Theoretical Physics</p>
-            <br>
+            <div class="affiliation">
+                <div class="affiliation-header">
+                    <p class="affiliation-name">Perimeter Institute for Theoretical Physics</p>
+                    <p class="affiliation-period">2026 -</p>
+                </div>
+                <ul class="affiliation-roles">
+                    <li>PhD in Physics (Quantum Information)</li>
+                </ul>
+            </div>
 
-            <p>Sep. 2025 - Mar. 2026</p>
-            <p class="margin-left">Visiting Student</p>
-            <p class="margin-left">Perimeter Institute for Theoretical Physics</p>
-            <br>
+            <div class="affiliation">
+                <div class="affiliation-header">
+                    <p class="affiliation-name">Department of Physics, Kyoto University</p>
+                    <p class="affiliation-period"> 2025 - 2026</p>
+                </div>
+                <ul class="affiliation-roles">
+                    <li>PhD in Physics (withdrawn)</li>
+                    <li>
+                        Note: switched to the PhD program at Perimeter Institute
+                    </li>
+                </ul>
+            </div>
 
-            <p>Apr. 2025 - Aug. 2026</p>
-            <p class="margin-left">Ph.D. (withdrawn, switched to the Ph.D. program at Perimeter Institute)</p>
-            <p class="margin-left">Department of Physics, Kyoto University</p>
-            <br>
+            <div class="affiliation">
+                <div class="affiliation-header">
+                    <p class="affiliation-name">Research Institute for Mathematical Science, Kyoto University</p>
+                    <p class="affiliation-period">2023 - 2025</p>
+                </div>
+                <ul class="affiliation-roles">
+                    <li>MSc in Mathematics</li>
+                </ul>
+            </div>
 
-            <p>Apr. 2023 - Mar. 2025</p>
-            <p class="margin-left">MSc</p>
-            <p class="margin-left">Research Institute for Mathematical Science, Kyoto University</p>
-            <br>
+            <div class="affiliation">
+                <div class="affiliation-header">
+                    <p class="affiliation-name">Faculty of Science, Kyoto University</p>
+                    <p class="affiliation-period">2020 - 2023</p>
+                </div>
+                <ul class="affiliation-roles">
+                    <li>BSc in Physics and Mathematics (withdrawn)</li>
+                    <li>Note: prior to degree completion due to early acceptance into graduate school</li>
+                </ul>
+            </div>
 
-            <p>Apr. 2020 - Mar. 2023</p>
-            <p class="margin-left">BSc (withdrawn, prior to degree completion due to early acceptance into graduate school)</p>
-            <p class="margin-left">Faculty of Science, Kyoto University</p>
-            <br>
-
-            <p>Apr. 2017 - Mar. 2020</p>
-            <p class="margin-left">Seiko Gakuin High School (Yokohama)</p>
+            <div class="affiliation">
+                <div class="affiliation-header">
+                    <p class="affiliation-name">Seiko Gakuin High School</p>
+                    <p class="affiliation-period">2017 - 2020</p>
+                </div>
+            </div>
         </div>
     </div>
 </main>

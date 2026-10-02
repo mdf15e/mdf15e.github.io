@@ -1,3 +1,4 @@
+import { loadPublications } from './publications.js';
 import {
     applyInterpolateToDOM,
     importOneScript,
@@ -43,6 +44,8 @@ async function loadDOM() {
 }
 
 async function afterLoadingDOM() {
+    await loadPublications(lang);
+
     // 変数の置き換え
     await applyInterpolateToDOM(document, env);
 
