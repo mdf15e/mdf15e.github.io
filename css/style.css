@@ -1,257 +1,290 @@
+/*
+目次
+    :root
+    variable setting
+    *
+    id
+    class
+    tag
+    media query
+*/
+
+/* variable setting */
+:root {
+    /* jsで上書きされる */
+    --theme-dark: #000000;
+    --theme-light: #ffffff;
+    --theme-tp-dark: rgba(0, 0, 0, 0.8);
+    --theme-tp-light: rgba(255, 255, 255, 0.8);
+    --theme-text: #000000;
+    --theme-bg: #ffffff;
+    --theme-tp-bg: rgba(255, 255, 255, 0.4);
+    --accent-color: #ff0000;
+    --icon-image-dark: url('/images/icons/ST-icon-blue.png');
+    --icon-image-light: url('/images/icons/ST-icon-white.png');
+    /* jsで上書きされない */
+    --theme-font: Courier, monospace, serif;
+    --normal-font: Arial, sans-serif, serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* color setting */
-:root {
-    --theme-dark: #000000;  /* 初期値（何でもOK） */
-    --theme-light: #ffffff;
-    --theme-transparent-dark: rgba(0, 0, 0, 0.8);
-    --theme-transparent-light: rgba(255, 255, 255, 0.8);
-    --theme-text: #000000;
-    --theme-background: #ffffff;
-    --accent-color: #ff0000;
-    --title-font: "Times", serif;
-    --body-font: "Times", serif;
-    --icon-image: url('/images/icons/ST-icon-blue.png');
-}
-
-/* tag */
-
-a {
-    color: var(--theme-text);
-    text-decoration: underline;
-}
-
-body {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-image: var(--icon-image);
-    background-size: 30vw; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: var(--theme-background) 0.8;
-    color: white;
-    overflow-x: hidden;
-}
-
-h2 {
-    color: var(--theme-dark);
-    display: inline-block;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 0em 0.3em;
-    border-radius: 0.1em;
-}
-
-html {
-    overflow-x: hidden;
-}
-
-img, video {
-    max-width: 100%;
-    height: auto;
-}
-
-main {
-    flex: 1;
-    margin: 0, auto;
-    padding: 0 5vw; /* 画面幅に応じた相対padding */
-    max-width: 100vw;
-    box-sizing: border-box;
-    text-align: left;
-}
-
 /* id */
-#redirect {
-    font-size: min(8vw, 3em);
+#header-top {
+    position: relative;
+    text-align: center;
+}
+
+#header-top h1{
+    margin: 0em;
+}
+
+#bg-image {
+    position: fixed;
+    top: 0em;
+    left: 0em;
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--icon-image-dark);
+    background-size: min(45vw, 40vh);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -200;
+}
+
+#language-switcher {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    right: 1em;
+    bottom: 0.8em;
+}
+
+#site-nav {
+    padding: 0.2em;
+    margin: 0em;
+    background-color: var(--theme-dark);
+    color: var(--theme-bg);
+}
+
+#site-nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0em;
+    padding: 0em;
+}
+
+#site-nav ul li{
+    margin: 0em min(1vw, 1em);
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#pagination .active{
+    background-color: var(--theme-tp-dark);
+    color: var(--theme-bg);
+}
+
+#pagination .virtual-button{
+    border: none;
+    background-color: transparent;
+    vertical-align: auto;
 }
 
 /* class */
+.accent {
+    color: var(--accent-color);
+}
 
-.design-done{
-    font-family: var(--title-font);
+.box {
+    background-color: var(--theme-tp-light);
+    color: var(--theme-text);
+    margin: 1em auto;
+    padding: 0.8em 1.5em 0.8em 1.5em;
+    box-shadow: 0.1em 0.1em 0.2em var(--theme-tp-dark);
+    border-radius: 0.1em;
+    text-shadow: none;
+}
+
+.box .box-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.box hr {
+    margin-top: 0.1em;
+}
+
+.first-letter {
+    font-size: 1.5em;
+    vertical-align: baseline;
+    display: inline;
     color: var(--theme-dark);
 }
 
-.iconed{
-    display: inline-flex;
-    align-items: center;
-    padding-left: 1.0em; /* 左側に余白を確保（背景画像がはみ出ないように） */
-    background-image: var(--icon-image);
-    background-repeat: no-repeat;
-    background-position: 0.1em center;
-    background-size: 0.8em 0.8em; /* 必要に応じてサイズ調整 */
-}
-
-.inline-right{
-    display: block;
-    text-align: right;
-}
-
-.initial{
+.initials {
     font-size: 2em;
     vertical-align: baseline;
     display: inline;
     color: transparent;
-    -webkit-text-stroke: 0.05em var(--theme-dark); /* 輪郭の太さと色 */
-    text-stroke: 0.05em var(--theme-text); /* 一部ブラウザのため */
+    -webkit-text-stroke: 0.05em var(--theme-dark);
 }
 
-.content {
-    background-color: var(--theme-transparent-light);
-    color: var(--theme-text);
-    margin: 0em auto 1em auto;
-    padding: 0.3em 1.5em 0.8em;
-    box-shadow: 0.1em 0.1em 0.2em var(--theme-transparent-dark);
-    border-radius: 0.1em;
+.margin-left {
+    margin-left: 1.5em;
 }
 
-.content a {
-    display: inline;
-    color: var(--theme-dark);
+.orcid-icon {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
 }
 
-.content .content-title a {
+.plain-text {
+    font-size: 0.8em;
+    text-decoration: none;
+    font-weight: normal;
     color: inherit;
-    text-decoration: none;
 }
 
-.first-letter{
-    font-size: 1.5em;
-    vertical-align: baseline;
-    display: inline;
-    color: var(--theme-dark);
+.profile {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    align-items: baseline;
+    column-gap: 1em;
+    row-gap: 1em;
+    padding-bottom: 1em;
 }
 
-.gap-1rem {
-    margin: 1rem;
+.profile > br {
+    display: none;
 }
 
-.indented{
-    text-indent: 2em;
+.profile dt {
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: normal;
+    color: color-mix(in srgb, var(--theme-dark) 55%, var(--theme-text));
+    min-width: 12ex;
 }
 
-.margin-left{
-    margin-left: 2em;
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
 }
 
-.no-contents-message{
-    font-size: 1.5em;
-    text-align: center;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
-    background-color: var(--theme-transparent-light);
-    color: var(--theme-text);
+.profile-link {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 36px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
-.nodeco{
-    text-decoration: none;
+.profile-link-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    object-fit: contain;
 }
 
-.ruler{
-    border: none;
-    height: 1px;
-    background-color: var(--theme-text);
-    margin: 0 0 0.5rem 0;
+.profile-link-id {
+    font-size: 0.9em;
+    font-weight: 400;
+    color: color-mix(in srgb, var(--theme-text) 65%, var(--theme-bg));
 }
 
 .sns-icon{
     width: 1.5em;
     height: 1.5em;
-    margin: 0 0.2em;
+    margin: 1em 0.2em;
     vertical-align: middle;
 }
 
-.small-sns-icon{
-    width: 1.0em;
-    height: 1.0em;
-    margin: 0 0.2em;
-    vertical-align: middle;
+.system-message-text {
+    text-align: center;
 }
 
-/* header */
-
-header {
-    display: flex;
+.with-dark-icon {
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    font-family: var(--title-font);
-    text-align: center;
-    background-color: transparent;
+    padding-left: 1.0em;
+    background-image: var(--icon-image-dark);
+    background-repeat: no-repeat;
+    background-position: 0.1em center;
+    background-size: 0.8em 0.8em;
+}
+
+.with-light-icon {
+    display: inline-flex;
+    align-items: center;
+    padding-left: 1.0em;
+    background-image: var(--icon-image-light);
+    background-repeat: no-repeat;
+    background-position: 0.1em center;
+    background-size: 0.8em 0.8em;
+}
+
+/* tag */
+a {
     color: var(--theme-dark);
-    margin: 2rem 0 0 0;
-    padding: 0;
-    position: relative;
-}
-
-header h1 {
-    flex: 1;
-    text-align: center;
-    display: inline-block;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 0em 0.3em;
-    border-radius: 0.1em;
-}
-
-header h1 a {
     text-decoration: none;
 }
 
-#language-switcher {
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
+.paper-details a {
+    text-decoration: underline;
 }
 
-#tab-container {
-    display: flex;
-    justify-content: center;
-    margin: 0.5rem 0 0.7rem 0;
-    padding: 0;
-    font-family: var(--title-font);
+a:hover,
+a:focus-visible {
+    font-weight: 700;
 }
 
-#header-hr{
-    border: none;
-    height: 2px;
+button {
+    font-family: var(--theme-font);
+    background-color: var(--theme-bg);
+    color: var(--theme-dark);
+    min-width: 5.5em;
+    height: 2em;
+    margin: 0 0.2em;
+    border: 2px solid var(--theme-dark);
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+button:hover{
     background-color: var(--theme-dark);
-    margin: 0;
+    color: var(--theme-bg);
 }
 
-.tab {
-    font-size: 1.1rem;
-    margin: 0 0.4rem;
-    display: inline-block;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 0.3em;
+body {
+    margin: 0em;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
 }
-
-.tab:hover {
-    background-color: var(--theme-transparent-light);
-}
-
-/* footer */
 
 footer {
-  background-color: var(--theme-dark);
-  padding: 2rem 1rem 1rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: white;
-  margin-top: 1rem;
-  font-family: var(--title-font);
+    background-color: var(--theme-dark);
+    padding: 3em 1em;
+    line-height: 1.5em;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--theme-bg);
+    font-family: var(--theme-font);
 }
 
 footer a {
@@ -259,40 +292,365 @@ footer a {
     text-decoration: none;
 }
 
-footer a:hover {
-    text-decoration: underline;
+html {
+    font-size: 16px;
 }
 
-.footer-nav {
-  margin-top: 1rem;
+h1, h2 {
+    margin: 0.2em;
+    font-family: var(--theme-font);
+    color: var(--normal-text);
+}
+
+h3 {
+    margin: 0em;
+    color: var(--theme-text);
+}
+
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    font-family: var(--theme-font);
+    margin-top: 0em;
+    padding: 2em 0em 0em 0em;
+    color: var(--theme-dark);
+    background-color: var(--theme-bg);
+}
+
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header hr {
+    border: none;
+    height: 2px;
+    background-color: var(--theme-dark);
+}
+
+hr {
+    border: none;
+    margin: 0.5em 0em;
+    height: 1px;
+    background-color: var(--theme-text);
+}
+
+main {
+    color: var(--normal-text);
+    text-shadow:
+        0em 0em 0.4em var(--theme-bg),
+        0.1em 0em 0.2em var(--theme-bg),
+        -0.1em 0em 0.2em var(--theme-bg),
+        0em 0.1em 0.2em var(--theme-bg),
+        0em -0.1em 0.2em var(--theme-bg),
+        0.1em 0.1em 0.2em var(--theme-bg),
+        0.1em -0.1em 0.2em var(--theme-bg),
+        -0.1em 0.1em 0.2em var(--theme-bg),
+        -0.1em -0.1em 0.2em var(--theme-bg);
+    margin: 2em min(4em,5vw);
+    flex: 1;
+}
+
+.paper-title,
+.talk-title {
+    font-style: italic;
+}
+
+.paper-authors,
+.paper-details,
+.talk-authors,
+.talk-details {
+    font-size: 0.9em;
+    margin-top: 0.25em;
+}
+
+.paper-authors,
+.talk-authors {
+    font-size: 0.84em;
+    color: color-mix(in srgb, var(--theme-text) 55%, var(--theme-bg));
+}
+
+.paper-authors u,
+.talk-authors u {
+    font-weight: 700;
+}
+
+.talk-invited {
+    font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    font-weight: 700;
+}
+
+.paper-category {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85em;
+    font-weight: 700;
+}
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0;
+}
+
+.note-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 0.5rem 1.5rem;
+    padding: 0.85rem 0;
+}
+
+.note-item + .note-item,
+ol.bracketed[reversed] > li + li,
+.affiliation + .affiliation {
+    border-top: 1px solid color-mix(in srgb, var(--theme-dark) 12%, transparent);
+}
+
+.note-title {
+    line-height: 1.5;
+}
+
+.note-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35em 1em;
+    margin-top: 0.25rem;
+    font-size: 0.78em;
+    color: color-mix(in srgb, var(--theme-text) 65%, var(--theme-bg));
+}
+
+.note-resources {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.note-resource {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 0.25em 0.75em;
+    border: 1px solid color-mix(in srgb, var(--theme-dark) 22%, transparent);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.note-resource[href$=".pdf"] {
+    background-color: color-mix(in srgb, var(--theme-dark) 6%, transparent);
+}
+
+@media (max-width: 600px) {
+    .note-item {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 0.25rem;
+    }
+}
+
+.publication-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid color-mix(in srgb, var(--theme-dark) 16%, transparent);
+    padding-top: 0.65rem;
+    margin-top: 1.25rem;
+}
+
+.publication-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85em;
+    min-height: 44px;
+    padding: 0.35em 0.25em;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.015em;
+}
+
+.publication-link-arrow {
+    display: inline-block;
+    font-size: 1.3em;
+    transition: transform 160ms ease;
+}
+
+.publication-all-link:hover .publication-link-arrow,
+.publication-all-link:focus-visible .publication-link-arrow {
+    transform: translateX(3px);
+}
+
+.publication-all-link:focus-visible {
+    outline: 2px solid var(--theme-dark);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .publication-link-arrow {
+        transition: none;
+    }
+
+    .publication-all-link:hover .publication-link-arrow,
+    .publication-all-link:focus-visible .publication-link-arrow {
+        transform: none;
+    }
+}
+
+.research-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0;
+}
+
+.research-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 32px;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--theme-dark) 20%, transparent);
+    border-radius: 6px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.research-link-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    object-fit: contain;
+}
+
+.research-link-arrow {
+    margin-left: 0.2rem;
+    font-size: 0.9em;
+    opacity: 0.65;
+}
+
+.research-link:hover,
+.research-link:focus-visible {
+    background-color: color-mix(in srgb, var(--theme-dark) 6%, transparent);
+    border-color: color-mix(in srgb, var(--theme-dark) 45%, transparent);
+}
+
+.author-order-note {
+    margin-bottom: 1rem;
+}
+
+ol.bracketed {
+    counter-reset: item;
+    list-style: none;
+    margin: 0;
+    /* make sure the browser’s default indent is gone */
+    padding: 0;
+}
+
+ol.bracketed li {
+    counter-increment: item;
+    position: relative;
+    /* shrink this if the list is too far right */
+    padding-left: 1.8em;
+    margin-bottom: 1em;
+}
+
+ol.bracketed li::before {
+    content: "[" counter(item) "]";
+    position: absolute;
+    left: 0;
+    /* widen this if “[1]” and the text are too close */
+    width: 1.5em;
+    text-align: right;
+    /* add a little extra breathing room after the bracket */
+    margin-right: 0.5em;
+}
+
+ol.bracketed[reversed] > li {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    margin-bottom: 0;
+}
+
+ol.bracketed[reversed] > li::before {
+    content: "[" counter(list-item) "]";
+}
+
+ol.bracketed[reversed] > li[value]::before {
+    content: "[" attr(value) "]";
+}
+
+.affiliation {
+    padding: 0.85rem 0;
+}
+
+.affiliation-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    column-gap: 1.5em;
+}
+
+.affiliation-period {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.affiliation-roles {
+    color: color-mix(in srgb, black 70%, white);
+    margin-top: 0.25em;
+    padding-left: 1.5em;
+    font-size: 0.84em;
+}
+
+@media (max-width: 600px) {
+    .affiliation-header {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 0.25em;
+    }
+
+    .affiliation-period {
+        text-align: left;
+        white-space: normal;
+    }
 }
 
 /* media query */
 @media (max-width: 530px) {
-    #tab-container {
-        flex-direction: column; /* タブを縦並びに */
+    #site-nav ul{
+        flex-direction: column;
         align-items: center;
     }
 
-    .tab {
-        margin: 0.3rem 0;
+    #site-nav li {
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
     }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 540px) {
     header {
-        flex-direction: column; /* 横並び→縦並び */
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
     header h1 {
         width: 100%;
-        margin-bottom: 1rem;
+        margin-bottom: 0rem;
     }
 
     #language-switcher {
-            position: static; /* absoluteをやめて自然な位置に */
-        margin-bottom: 1rem;
+            position: static;
+        margin-bottom: 0.7rem;
+    }
+
+    #pagination button{
+        min-width: 10vw;
     }
 }
