@@ -391,6 +391,15 @@ diaryを作成してみましょう。
 
 ## 更新の仕方
 
+### 発表一覧の更新
+
+発表の編集元は `includes/presentations.html` です。英語版を基準とした共通内容を日本語・英語の両ページで読み込みます。
+
+- 新しい発表は `<ol>` の先頭に `<li>` を追加し、`talk-title`、`talk-authors`、`talk-details` を編集します。
+- 招待講演は、発表形式を `<span class="talk-invited">invited talk</span>` と記述します。このクラスがある項目だけホームにも表示されます。
+- `papers-talks.html` は全件を表示します。番号は全件から自動計算するため、`value` や `start` の記入は不要です。
+- ホームでも全一覧と同じ番号を使用します。読み込み処理は `js/presentations.js` です。
+
 ### 論文一覧の更新
 
 論文の編集元は `includes/publications.html` です。日本語・英語のホームと全一覧は、この共通ファイルを読み込みます。

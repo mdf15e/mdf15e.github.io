@@ -1,3 +1,4 @@
+import { loadPresentations } from './presentations.js';
 import { loadPublications } from './publications.js';
 import {
     applyInterpolateToDOM,
@@ -44,7 +45,7 @@ async function loadDOM() {
 }
 
 async function afterLoadingDOM() {
-    await loadPublications(lang);
+    await Promise.all([loadPublications(lang), loadPresentations(lang)]);
 
     // 変数の置き換え
     await applyInterpolateToDOM(document, env);
