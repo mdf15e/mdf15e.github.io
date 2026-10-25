@@ -1,3 +1,4 @@
+import { startMathJax, typesetMath } from './mathjax.js';
 import { loadPresentations } from './presentations.js';
 import { loadPublications } from './publications.js';
 import {
@@ -24,12 +25,24 @@ let env = {
     "t": t
 }
 
+// Start shared-list requests before waiting for configuration or external scripts.
+const listLanguage = location.pathname.split('/')[1];
+const listsReady = Promise.all([
+    loadPublications(listLanguage),
+    loadPresentations(listLanguage),
+]);
+
 main();
 
 async function main() {
     await initAppData();
-    await loadDOM();
+    const mathReady = startMathJax(config, settings);
+    await Promise.all([
+        loadDOM(),
+        listsReady,
+    ]);
     await afterLoadingDOM();
+    await typesetMath(mathReady);
 }
 
 async function initAppData() {
@@ -38,15 +51,11 @@ async function initAppData() {
 }
 
 async function loadDOM() {
-    await addToHead();
-    await Promise.all([
-        addToBody(),
-    ])
+    const scriptsReady = addToHead();
+    await addToBody(scriptsReady);
 }
 
 async function afterLoadingDOM() {
-    await Promise.all([loadPublications(lang), loadPresentations(lang)]);
-
     // 変数の置き換え
     await applyInterpolateToDOM(document, env);
 
@@ -58,12 +67,6 @@ async function afterLoadingDOM() {
     //言語切り替え
     setupLanguageSwitcher();
 
-    // MathJaxのtypeset
-    if (window.MathJax?.typesetPromise) {
-        await MathJax.typesetPromise();
-    } else {
-        console.warn("MathJax.typesetPromise is not found.");
-    }
 }
 
 // in beforeLoadDOM
@@ -114,26 +117,14 @@ function applyTheme() {
 
 // in loadDOM
 async function addToHead () {
-    if (document.body.dataset.tags?.includes('mathjax')) {
-        window.MathJax = {
-            tex: {
-            inlineMath: config.mathjax.tex.inlineMath,
-            displayMath: config.mathjax.tex.displayMath,
-            processEscapes: config.mathjax.tex.processEscapes,
-            tags: config.mathjax.tex.tags
-            },
-            options: {
-            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            renderActions: {
-                addMenu: []
-            }
-            }
-        };
-    }
+    // MathJax runs independently so its CDN cannot delay the page content.
+    const withoutMathJax = scripts => Object.fromEntries(
+        Object.entries(scripts).filter(([name]) => name.toLowerCase() !== 'mathjax')
+    );
 
     try {
         await tagMatchingValuation(
-            [settings.scripts,config.scripts],
+            [withoutMathJax(settings.scripts), withoutMathJax(config.scripts)],
             importOneScript,
             ['url','defer']
         );
@@ -142,7 +133,7 @@ async function addToHead () {
     }
 }
 
-async function addToBody() {
+async function addToBody(scriptsReady) {
     try {
         await tagMatchingValuation(
             [settings.htmlPartials,config.htmlPartials],
@@ -152,6 +143,7 @@ async function addToBody() {
     } catch (err) {
         console.error('loadOneHTMLPartial error:', err);
     }
+    await scriptsReady;
     try {
         if (!window.pluralize) {
             throw new Error("window.pluralize is not available");
